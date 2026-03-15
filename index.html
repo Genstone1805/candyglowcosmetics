@@ -711,7 +711,13 @@
         grid-template-columns: 1.05fr 1fr;
         gap: 48px;
         align-items: center;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+      }
+
+      @media (max-width: 768px) {
+        .featured-product {
+          box-shadow: none;
+        }
       }
 
       .featured-product__media {

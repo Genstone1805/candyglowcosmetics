@@ -3,8 +3,59 @@
     "hero": {
       "type": "beauty-hero",
       "settings": {
-        "button_link": "#"
-      }
+        "brand_name": "Candy Glow",
+        "title": "FOUNDER\nGLOW",
+        "description": "Discover founder-picked essentials that brighten, blur, and hydrate for an easy beauty routine with a polished finish.",
+        "offer_text": "LIMITED BATCH DROP",
+        "button_label": "SHOP THE EDIT",
+        "button_link": "#",
+        "main_image_alt": "Candy Glow founder essentials",
+        "autoplay_seconds": 3
+      },
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "brand_name": "Candy Glow",
+            "title": "FOUNDER\nGLOW",
+            "description": "Discover founder-picked essentials that brighten, blur, and hydrate for an easy beauty routine with a polished finish.",
+            "offer_text": "LIMITED BATCH DROP",
+            "button_label": "SHOP THE EDIT",
+            "button_link": "#",
+            "background_image_url": "https://pittsburghocdtreatment.com/wp-content/uploads/2026/01/pink-glittery-backdrop-scrapbooking-sparkle-background-wallpaper-stockpack-pixabay.png",
+            "main_image_alt": "Candy Glow founder essentials"
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "brand_name": "Candy Glow",
+            "title": "SKIN-FIRST\nBEAUTY",
+            "description": "Lightweight formulas, soft-focus finishes, and everyday favorites made to feel effortless from morning prep to final touch.",
+            "offer_text": "FREE SHIPPING OVER $50",
+            "button_label": "SHOP BESTSELLERS",
+            "button_link": "#",
+            "background_image_url": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1800&q=80",
+            "main_image_url": "https://candyglowcosmetics.com/cdn/shop/files/Untitled_design_-_2026-01-30T013653.577.png?v=1771550053&width=750",
+            "main_image_alt": "Candy Glow founder portrait"
+          }
+        },
+        "slide_3": {
+          "type": "slide",
+          "settings": {
+            "brand_name": "Candy Glow",
+            "title": "GLOW\nCONFIDENTLY",
+            "description": "Build a routine that looks radiant in real life with clean beauty staples designed for comfort, confidence, and repeat wear.",
+            "offer_text": "NEW CUSTOMERS SAVE 15%",
+            "button_label": "START YOUR ROUTINE",
+            "button_link": "#",
+            "background_image_url": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1800&q=80",
+            "main_image_url": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg",
+            "main_image_alt": "Candy Glow product display"
+          }
+        }
+      },
+      "block_order": ["slide_1", "slide_2", "slide_3"]
     },
     "values": {
       "type": "beauty-values",

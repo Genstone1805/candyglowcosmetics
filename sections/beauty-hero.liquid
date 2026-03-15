@@ -10,69 +10,187 @@
   elsif main_image_url == blank
     assign main_image_url = 'img1.png' | asset_url
   endif
+
+  assign hero_slide_count = section.blocks.size
+  if hero_slide_count == 0
+    assign hero_slide_count = 1
+  endif
+
+  assign hero_slider_id = 'beauty-hero-slider-' | append: section.id
 %}
 
 <section
   class="beauty-hero"
-  {% if background_image_url != blank %}
-    style="background-image: url('{{ background_image_url }}');"
-  {% endif %}
+  id="{{ hero_slider_id }}"
+  data-autoplay-ms="{{ section.settings.autoplay_seconds | times: 1000 }}"
+  aria-label="Home banner slider"
 >
-  <div class="beauty-hero__overlay beauty-hero__overlay--top"></div>
-  <div class="beauty-hero__overlay beauty-hero__overlay--bottom"></div>
+  <div class="beauty-hero__viewport">
+    <div class="beauty-hero__overlay beauty-hero__overlay--top"></div>
+    <div class="beauty-hero__overlay beauty-hero__overlay--bottom"></div>
 
-  <div class="beauty-hero__inner">
-    <div class="beauty-hero__content">
-      {% if section.settings.brand_name != blank %}
-        <div class="beauty-hero__brand">{{ section.settings.brand_name }}</div>
-      {% endif %}
+    <div class="beauty-hero__track">
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          {% liquid
+            assign slide_background_image_url = block.settings.background_image_url
+            if block.settings.background_image != blank
+              assign slide_background_image_url = block.settings.background_image | image_url: width: 2400
+            elsif slide_background_image_url == blank
+              assign slide_background_image_url = background_image_url
+            endif
 
-      {% if section.settings.title != blank %}
-        <h1 class="beauty-hero__title">{{ section.settings.title | newline_to_br }}</h1>
-      {% endif %}
+            assign slide_main_image_url = block.settings.main_image_url
+            if block.settings.main_image != blank
+              assign slide_main_image_url = block.settings.main_image | image_url: width: 1600
+            elsif slide_main_image_url == blank
+              assign slide_main_image_url = main_image_url
+            endif
 
-      {% if section.settings.description != blank %}
-        <p class="beauty-hero__desc">{{ section.settings.description }}</p>
-      {% endif %}
+            assign slide_brand_name = block.settings.brand_name | default: section.settings.brand_name
+            assign slide_title = block.settings.title | default: section.settings.title
+            assign slide_description = block.settings.description | default: section.settings.description
+            assign slide_offer_text = block.settings.offer_text | default: section.settings.offer_text
+            assign slide_button_label = block.settings.button_label | default: section.settings.button_label
+            assign slide_button_link = block.settings.button_link | default: section.settings.button_link | default: '#'
+            assign slide_main_image_alt = block.settings.main_image_alt | default: section.settings.main_image_alt | default: slide_title
+          %}
 
-      {% if section.settings.offer_text != blank %}
-        <div class="beauty-hero__offer">{{ section.settings.offer_text }}</div>
-      {% endif %}
+          <article
+            class="beauty-hero__slide"
+            {% if slide_background_image_url != blank %}
+              style="--hero-bg:url('{{ slide_background_image_url }}');"
+            {% endif %}
+            {{ block.shopify_attributes }}
+          >
+            <div class="beauty-hero__inner">
+              <div class="beauty-hero__content">
+                {% if slide_brand_name != blank %}
+                  <div class="beauty-hero__brand">{{ slide_brand_name }}</div>
+                {% endif %}
 
-      {% if section.settings.button_label != blank %}
-        <a href="{{ section.settings.button_link | default: '#' }}" class="beauty-hero__btn">
-          {{ section.settings.button_label }}
-        </a>
-      {% endif %}
-    </div>
+                {% if slide_title != blank %}
+                  <h1 class="beauty-hero__title">{{ slide_title | newline_to_br }}</h1>
+                {% endif %}
 
-    <div class="beauty-hero__visual">
-      {% if main_image_url != blank %}
-        <img
-          class="beauty-hero__main-image"
-          src="{{ main_image_url }}"
-          alt="{{ section.settings.main_image_alt | default: section.settings.title | escape }}"
-          loading="lazy"
+                {% if slide_description != blank %}
+                  <p class="beauty-hero__desc">{{ slide_description }}</p>
+                {% endif %}
+
+                {% if slide_offer_text != blank %}
+                  <div class="beauty-hero__offer">{{ slide_offer_text }}</div>
+                {% endif %}
+
+                {% if slide_button_label != blank %}
+                  <a href="{{ slide_button_link }}" class="beauty-hero__btn">
+                    {{ slide_button_label }}
+                  </a>
+                {% endif %}
+              </div>
+
+              <div class="beauty-hero__visual">
+                {% if slide_main_image_url != blank %}
+                  <img
+                    class="beauty-hero__main-image"
+                    src="{{ slide_main_image_url }}"
+                    alt="{{ slide_main_image_alt | escape }}"
+                    loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"
+                    {% if forloop.first %}
+                      fetchpriority="high"
+                    {% endif %}
+                  >
+                {% endif %}
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      {% else %}
+        <article
+          class="beauty-hero__slide"
+          {% if background_image_url != blank %}
+            style="--hero-bg:url('{{ background_image_url }}');"
+          {% endif %}
         >
+          <div class="beauty-hero__inner">
+            <div class="beauty-hero__content">
+              {% if section.settings.brand_name != blank %}
+                <div class="beauty-hero__brand">{{ section.settings.brand_name }}</div>
+              {% endif %}
+
+              {% if section.settings.title != blank %}
+                <h1 class="beauty-hero__title">{{ section.settings.title | newline_to_br }}</h1>
+              {% endif %}
+
+              {% if section.settings.description != blank %}
+                <p class="beauty-hero__desc">{{ section.settings.description }}</p>
+              {% endif %}
+
+              {% if section.settings.offer_text != blank %}
+                <div class="beauty-hero__offer">{{ section.settings.offer_text }}</div>
+              {% endif %}
+
+              {% if section.settings.button_label != blank %}
+                <a href="{{ section.settings.button_link | default: '#' }}" class="beauty-hero__btn">
+                  {{ section.settings.button_label }}
+                </a>
+              {% endif %}
+            </div>
+
+            <div class="beauty-hero__visual">
+              {% if main_image_url != blank %}
+                <img
+                  class="beauty-hero__main-image"
+                  src="{{ main_image_url }}"
+                  alt="{{ section.settings.main_image_alt | default: section.settings.title | escape }}"
+                  loading="eager"
+                  fetchpriority="high"
+                >
+              {% endif %}
+            </div>
+          </div>
+        </article>
       {% endif %}
     </div>
   </div>
+
+  {% if hero_slide_count > 1 %}
+    <div class="beauty-hero__indicators" aria-label="Banner indicators"></div>
+  {% endif %}
 </section>
 
 {% style %}
   #shopify-section-{{ section.id }} .beauty-hero {
     position: relative;
     overflow: hidden;
-    min-height: {{ section.settings.min_height }}px;
     width: 100%;
+    background: {{ section.settings.background_color }};
+    font-family: Georgia, "Times New Roman", serif;
+    padding-bottom: {% if hero_slide_count > 1 %}22px{% else %}0{% endif %};
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__viewport {
+    position: relative;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__track {
+    display: flex;
+    transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__slide {
+    position: relative;
+    flex: 0 0 100%;
+    min-height: {{ section.settings.min_height }}px;
     background-color: {{ section.settings.background_color }};
+    background-image: var(--hero-bg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    font-family: Georgia, "Times New Roman", serif;
   }
 
-  #shopify-section-{{ section.id }} .beauty-hero::before {
+  #shopify-section-{{ section.id }} .beauty-hero__slide::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -127,7 +245,7 @@
     position: relative;
     z-index: 3;
     display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
+    grid-template-columns: 1fr 1fr;
     align-items: end;
     gap: 10px;
     min-height: {{ section.settings.min_height }}px;
@@ -160,11 +278,11 @@
   }
 
   #shopify-section-{{ section.id }} .beauty-hero__desc {
-    margin: 10px 0 12px;
-    max-width: 330px;
+    margin: 12px 0 14px;
+    max-width: 430px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    line-height: 1.18;
+    font-size: 18px;
+    line-height: 1.35;
     color: {{ section.settings.description_color }};
   }
 
@@ -180,16 +298,16 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 126px;
-    height: 30px;
-    padding: 0 18px;
+    min-width: 160px;
+    min-height: 44px;
+    padding: 0 20px;
     background: {{ section.settings.button_background }};
     color: {{ section.settings.button_text_color }};
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    border-radius: 4px;
-    letter-spacing: 0.2px;
+    font-size: 15px;
+    border-radius: 999px;
+    letter-spacing: 0.08em;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
     transition: transform 0.25s ease, opacity 0.25s ease;
   }
@@ -211,10 +329,34 @@
     display: block;
     width: min(100%, 760px);
     max-width: 760px;
+    max-height: calc({{ section.settings.min_height }}px - 40px);
     object-fit: contain;
     object-position: bottom center;
     margin-bottom: 0;
     filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0.12));
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(17, 17, 17, 0.22);
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.25s ease, width 0.25s ease, transform 0.25s ease;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__indicator.is-active {
+    width: 34px;
+    background: #111111;
   }
 
   @media (max-width: 991px) {
@@ -250,11 +392,12 @@
   }
 
   @media (max-width: 640px) {
-    #shopify-section-{{ section.id }} .beauty-hero {
+    #shopify-section-{{ section.id }} .beauty-hero__slide {
       min-height: auto;
     }
 
     #shopify-section-{{ section.id }} .beauty-hero__inner {
+      min-height: auto;
       padding: 30px 16px 22px;
     }
 
@@ -271,15 +414,101 @@
     }
 
     #shopify-section-{{ section.id }} .beauty-hero__desc {
-      font-size: 12px;
-      line-height: 1.4;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    #shopify-section-{{ section.id }} .beauty-hero__btn {
+      width: 100%;
     }
 
     #shopify-section-{{ section.id }} .beauty-hero__main-image {
       max-width: 100%;
+      max-height: none;
     }
   }
 {% endstyle %}
+
+{% if hero_slide_count > 1 %}
+  <script>
+    (() => {
+      const hero = document.getElementById({{ hero_slider_id | json }});
+      if (!hero) return;
+
+      const track = hero.querySelector(".beauty-hero__track");
+      const slides = Array.from(hero.querySelectorAll(".beauty-hero__slide"));
+      const indicators = hero.querySelector(".beauty-hero__indicators");
+      const autoplayDelay = Number(hero.dataset.autoplayMs) || 3000;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      let currentIndex = 0;
+      let autoplayId = null;
+
+      if (!track || slides.length < 2 || !indicators) return;
+
+      function setActiveSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        indicators.querySelectorAll(".beauty-hero__indicator").forEach((indicator, indicatorIndex) => {
+          const isActive = indicatorIndex === currentIndex;
+          indicator.classList.toggle("is-active", isActive);
+          indicator.setAttribute("aria-current", isActive ? "true" : "false");
+        });
+      }
+
+      function stopAutoplay() {
+        if (autoplayId) {
+          window.clearInterval(autoplayId);
+          autoplayId = null;
+        }
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+
+        if (reducedMotion.matches) {
+          return;
+        }
+
+        autoplayId = window.setInterval(() => {
+          setActiveSlide(currentIndex + 1);
+        }, autoplayDelay);
+      }
+
+      indicators.innerHTML = "";
+
+      slides.forEach((_, slideIndex) => {
+        const indicator = document.createElement("button");
+        indicator.type = "button";
+        indicator.className = "beauty-hero__indicator";
+        indicator.setAttribute("aria-label", `Show banner slide ${slideIndex + 1}`);
+        indicator.addEventListener("click", () => {
+          setActiveSlide(slideIndex);
+          startAutoplay();
+        });
+        indicators.appendChild(indicator);
+      });
+
+      hero.addEventListener("mouseenter", stopAutoplay);
+      hero.addEventListener("mouseleave", startAutoplay);
+      hero.addEventListener("focusin", stopAutoplay);
+      hero.addEventListener("focusout", (event) => {
+        if (!hero.contains(event.relatedTarget)) {
+          startAutoplay();
+        }
+      });
+
+      if (typeof reducedMotion.addEventListener === "function") {
+        reducedMotion.addEventListener("change", startAutoplay);
+      } else if (typeof reducedMotion.addListener === "function") {
+        reducedMotion.addListener(startAutoplay);
+      }
+
+      setActiveSlide(0);
+      startAutoplay();
+    })();
+  </script>
+{% endif %}
 
 {% schema %}
 {
@@ -290,42 +519,42 @@
     {
       "type": "text",
       "id": "brand_name",
-      "label": "Brand name",
+      "label": "Fallback brand name",
       "default": "Brand Name"
     },
     {
       "type": "textarea",
       "id": "title",
-      "label": "Heading",
+      "label": "Fallback heading",
       "default": "BEAUTY\nCOSMETIC"
     },
     {
       "type": "textarea",
       "id": "description",
-      "label": "Description",
+      "label": "Fallback description",
       "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
     },
     {
       "type": "text",
       "id": "offer_text",
-      "label": "Offer text",
+      "label": "Fallback offer text",
       "default": "UP TO 50% OFF"
     },
     {
       "type": "text",
       "id": "button_label",
-      "label": "Button label",
+      "label": "Fallback button label",
       "default": "ORDER NOW"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Button link"
+      "label": "Fallback button link"
     },
     {
       "type": "image_picker",
       "id": "background_image",
-      "label": "Background image"
+      "label": "Fallback background image"
     },
     {
       "type": "text",
@@ -336,7 +565,7 @@
     {
       "type": "image_picker",
       "id": "main_image",
-      "label": "Main image"
+      "label": "Fallback main image"
     },
     {
       "type": "text",
@@ -346,8 +575,18 @@
     {
       "type": "text",
       "id": "main_image_alt",
-      "label": "Main image alt text",
+      "label": "Fallback main image alt text",
       "default": "Beauty cosmetics"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_seconds",
+      "label": "Autoplay speed",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "default": 3,
+      "unit": "s"
     },
     {
       "type": "color",
@@ -428,9 +667,90 @@
       "unit": "px"
     }
   ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "text",
+          "id": "brand_name",
+          "label": "Brand name",
+          "default": "Candy Glow"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Heading",
+          "default": "FOUNDER\nGLOW"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Discover founder-picked essentials that brighten, blur, and hydrate for an easy beauty routine with a polished finish."
+        },
+        {
+          "type": "text",
+          "id": "offer_text",
+          "label": "Offer text",
+          "default": "LIMITED BATCH DROP"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "SHOP THE EDIT"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background image"
+        },
+        {
+          "type": "text",
+          "id": "background_image_url",
+          "label": "Fallback background image URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "main_image",
+          "label": "Main image"
+        },
+        {
+          "type": "text",
+          "id": "main_image_url",
+          "label": "Fallback main image URL"
+        },
+        {
+          "type": "text",
+          "id": "main_image_alt",
+          "label": "Main image alt text",
+          "default": "Beauty hero product image"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
-      "name": "Beauty Hero"
+      "name": "Beauty Hero",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
     }
   ]
 }

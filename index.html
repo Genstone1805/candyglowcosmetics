@@ -10,47 +10,126 @@
 <body>
 
   <!-- HOME BANNER -->
-  <section class="beauty-hero">
-    <div class="beauty-hero__overlay beauty-hero__overlay--top"></div>
-    <div class="beauty-hero__overlay beauty-hero__overlay--bottom"></div>
+  <section class="beauty-hero" id="homeHeroSlider" aria-label="Home banner slider">
+    <div class="beauty-hero__viewport">
+      <div class="beauty-hero__overlay beauty-hero__overlay--top"></div>
+      <div class="beauty-hero__overlay beauty-hero__overlay--bottom"></div>
 
-    <div class="beauty-hero__inner">
-      <div class="beauty-hero__content">
-        <div class="beauty-hero__brand">Brand Name</div>
+      <div class="beauty-hero__track">
+        <article class="beauty-hero__slide" style="--hero-bg:url('/banner.png');">
+          <div class="beauty-hero__inner">
+            <div class="beauty-hero__content">
+              <div class="beauty-hero__brand">Candy Glow</div>
 
-        <h1 class="beauty-hero__title">
-          BEAUTY<br>
-          COSMETIC
-        </h1>
+              <h1 class="beauty-hero__title">
+                FOUNDER<br>
+                GLOW
+              </h1>
 
-        <p class="beauty-hero__desc">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-        </p>
+              <p class="beauty-hero__desc">
+                Discover founder-picked essentials that brighten, blur, and hydrate for an easy beauty routine with a
+                polished finish.
+              </p>
 
-        <div class="beauty-hero__offer">UP TO 50% OFF</div>
+              <div class="beauty-hero__offer">LIMITED BATCH DROP</div>
 
-        <a href="#" class="beauty-hero__btn">ORDER NOW</a>
-      </div>
+              <a href="#" class="beauty-hero__btn">SHOP THE EDIT</a>
+            </div>
 
-      <div class="beauty-hero__visual">
-        <img class="beauty-hero__main-image" src="/img1.png" alt="Beauty cosmetics">
+            <div class="beauty-hero__visual">
+              <img class="beauty-hero__main-image" src="/img1.png" alt="Candy Glow founder essentials">
+            </div>
+          </div>
+        </article>
+
+        <article class="beauty-hero__slide" style="--hero-bg:url('/banner.png');">
+          <div class="beauty-hero__inner">
+            <div class="beauty-hero__content">
+              <div class="beauty-hero__brand">Candy Glow</div>
+
+              <h1 class="beauty-hero__title">
+                SKIN-FIRST<br>
+                BEAUTY
+              </h1>
+
+              <p class="beauty-hero__desc">
+                Lightweight formulas, soft-focus finishes, and everyday favorites made to feel effortless from morning
+                prep to final touch.
+              </p>
+
+              <div class="beauty-hero__offer">FREE SHIPPING OVER $50</div>
+
+              <a href="#" class="beauty-hero__btn">SHOP BESTSELLERS</a>
+            </div>
+
+            <div class="beauty-hero__visual">
+              <img class="beauty-hero__main-image" src="/image3.png" alt="Candy Glow beauty collection">
+            </div>
+          </div>
+        </article>
+
+        <article class="beauty-hero__slide" style="--hero-bg:url('/banner.png');">
+          <div class="beauty-hero__inner">
+            <div class="beauty-hero__content">
+              <div class="beauty-hero__brand">Candy Glow</div>
+
+              <h1 class="beauty-hero__title">
+                GLOW<br>
+                CONFIDENTLY
+              </h1>
+
+              <p class="beauty-hero__desc">
+                Build a routine that looks radiant in real life with clean beauty staples designed for comfort,
+                confidence, and repeat wear.
+              </p>
+
+              <div class="beauty-hero__offer">NEW CUSTOMERS SAVE 15%</div>
+
+              <a href="#" class="beauty-hero__btn">START YOUR ROUTINE</a>
+            </div>
+
+            <div class="beauty-hero__visual">
+              <img class="beauty-hero__main-image" src="/image2.png" alt="Candy Glow founder portrait">
+            </div>
+          </div>
+        </article>
       </div>
     </div>
+
+    <div class="beauty-hero__indicators" aria-label="Banner indicators"></div>
+
     <style>
       .beauty-hero {
         position: relative;
         overflow: hidden;
-        min-height: 560px;
         width: 100%;
-        background-image: url("https://pittsburghocdtreatment.com/wp-content/uploads/2026/01/pink-glittery-backdrop-scrapbooking-sparkle-background-wallpaper-stockpack-pixabay.png");
+        background: #f8d6e0;
+        font-family: Georgia, "Times New Roman", serif;
+        padding-bottom: 22px;
+      }
+
+      .beauty-hero__viewport {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .beauty-hero__track {
+        display: flex;
+        transition: transform .75s cubic-bezier(.22, 1, .36, 1);
+        will-change: transform;
+      }
+
+      .beauty-hero__slide {
+        position: relative;
+        flex: 0 0 100%;
+        min-height: 560px;
+        background-image: var(--hero-bg);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        font-family: Georgia, "Times New Roman", serif;
       }
 
-      .beauty-hero::before {
+      .beauty-hero__slide::before {
         content: "";
         position: absolute;
         inset: 0;
@@ -136,11 +215,11 @@
       }
 
       .beauty-hero__desc {
-        margin: 10px 0 12px;
+        margin: 12px 0 14px;
         max-width: 430px;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 18px;
-        line-height: 1.2;
+        line-height: 1.35;
         color: #555;
       }
 
@@ -156,16 +235,16 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 126px;
-        height: 30px;
-        padding: 0 18px;
+        min-width: 160px;
+        min-height: 44px;
+        padding: 0 20px;
         background: #050505;
         color: #fff;
         text-decoration: none;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: 18px;
-        border-radius: 4px;
-        letter-spacing: .2px;
+        font-size: 15px;
+        border-radius: 999px;
+        letter-spacing: .08em;
         box-shadow: 0 3px 10px rgba(0, 0, 0, .16);
         transition: transform .25s ease, opacity .25s ease;
       }
@@ -187,10 +266,34 @@
         display: block;
         width: min(100%, 760px);
         max-width: 760px;
+        max-height: 520px;
         object-fit: contain;
         object-position: bottom center;
         margin-bottom: 0;
         filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0.12));
+      }
+
+      .beauty-hero__indicators {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .beauty-hero__indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        border: none;
+        background: rgba(17, 17, 17, 0.22);
+        cursor: pointer;
+        padding: 0;
+        transition: background .25s ease, transform .25s ease, width .25s ease;
+      }
+
+      .beauty-hero__indicator.is-active {
+        width: 34px;
+        background: #111;
       }
 
       @media (max-width: 991px) {
@@ -226,11 +329,12 @@
       }
 
       @media (max-width: 640px) {
-        .beauty-hero {
+        .beauty-hero__slide {
           min-height: auto;
         }
 
         .beauty-hero__inner {
+          min-height: auto;
           padding: 30px 16px 22px;
         }
 
@@ -247,8 +351,12 @@
         }
 
         .beauty-hero__desc {
-          font-size: 12px;
-          line-height: 1.4;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
+        .beauty-hero__btn {
+          width: 100%;
         }
 
         .beauty-hero__main-image {
@@ -256,6 +364,89 @@
         }
       }
     </style>
+
+    <script>
+      (() => {
+        const hero = document.getElementById("homeHeroSlider");
+        if (!hero) return;
+
+        const track = hero.querySelector(".beauty-hero__track");
+        const slides = Array.from(hero.querySelectorAll(".beauty-hero__slide"));
+        const indicators = hero.querySelector(".beauty-hero__indicators");
+        const autoplayDelay = 3000;
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        let currentIndex = 0;
+        let autoplayId = null;
+
+        if (!track || slides.length === 0 || !indicators) return;
+
+        function setActiveSlide(index) {
+          currentIndex = (index + slides.length) % slides.length;
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+          indicators.querySelectorAll(".beauty-hero__indicator").forEach((indicator, indicatorIndex) => {
+            const isActive = indicatorIndex === currentIndex;
+            indicator.classList.toggle("is-active", isActive);
+            indicator.setAttribute("aria-current", isActive ? "true" : "false");
+          });
+        }
+
+        function stopAutoplay() {
+          if (autoplayId) {
+            window.clearInterval(autoplayId);
+            autoplayId = null;
+          }
+        }
+
+        function startAutoplay() {
+          stopAutoplay();
+
+          if (slides.length < 2 || reducedMotion.matches) {
+            return;
+          }
+
+          autoplayId = window.setInterval(() => {
+            setActiveSlide(currentIndex + 1);
+          }, autoplayDelay);
+        }
+
+        function restartAutoplay() {
+          startAutoplay();
+        }
+
+        indicators.innerHTML = "";
+
+        slides.forEach((_, slideIndex) => {
+          const indicator = document.createElement("button");
+          indicator.type = "button";
+          indicator.className = "beauty-hero__indicator";
+          indicator.setAttribute("aria-label", `Show banner slide ${slideIndex + 1}`);
+          indicator.addEventListener("click", () => {
+            setActiveSlide(slideIndex);
+            restartAutoplay();
+          });
+          indicators.appendChild(indicator);
+        });
+
+        hero.addEventListener("mouseenter", stopAutoplay);
+        hero.addEventListener("mouseleave", startAutoplay);
+        hero.addEventListener("focusin", stopAutoplay);
+        hero.addEventListener("focusout", (event) => {
+          if (!hero.contains(event.relatedTarget)) {
+            startAutoplay();
+          }
+        });
+
+        if (typeof reducedMotion.addEventListener === "function") {
+          reducedMotion.addEventListener("change", startAutoplay);
+        } else if (typeof reducedMotion.addListener === "function") {
+          reducedMotion.addListener(startAutoplay);
+        }
+
+        setActiveSlide(0);
+        startAutoplay();
+      })();
+    </script>
   </section>
 
   <!-- credibility slidwr -->

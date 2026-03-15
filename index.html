@@ -1318,6 +1318,9 @@
 
   <!-- categories -->
   <section class="skin-bento">
+    <div style="width:100%; max-width: 1200px; margin: 10px auto;">
+      <h1 style="color:white">Our categories</h1>
+    </div>
     <div class="skin-bento__grid">
       <!-- Card 1 -->
       <article class="skin-card skin-card--tall">
@@ -1367,10 +1370,15 @@
       .skin-bento {
         padding: 18px;
         background: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
       }
 
       .skin-bento__grid {
         max-width: 1200px;
+        width: 100%;
         margin: 0 auto;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -1597,8 +1605,7 @@
     </div>
     <style>
       .ba-section {
-        padding: 28px 20px;
-        background: #f6f1f2;
+        padding: 38px 20px;
       }
 
       .ba-container {
@@ -1909,7 +1916,7 @@
   <!-- Tstimonies -->
   <section class="testimonials-section">
 
-    <div class="overlay"></div>
+    <!-- <div class="overlay"></div> -->
 
     <div class="testimonials-container">
 
@@ -1982,18 +1989,13 @@
     <style>
       .testimonials-section {
         position: relative;
-        padding: 120px 20px;
-        background: url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9");
+        padding: 100px 20px;
+        /* background: url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"); */
         background-size: cover;
         background-position: center;
-        color: white;
+        color: rgb(0, 0, 0);
+        background-color: #F8F8F8;
         overflow: hidden;
-      }
-
-      .overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.72);
       }
 
       .testimonials-container {
@@ -2012,29 +2014,28 @@
         display: inline-block;
         padding: 8px 18px;
         border-radius: 30px;
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(0, 0, 0, 0.15);
         border: 1px solid rgba(255, 255, 255, 0.4);
         font-size: 12px;
         letter-spacing: .12em;
         text-transform: uppercase;
-        margin-bottom: 16px;
+        margin-bottom: -10px;
       }
 
       .header h2 {
         font-size: 40px;
         font-family: Georgia, serif;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
       }
 
       .header p {
-        color: rgba(255, 255, 255, .85);
         max-width: 650px;
         margin: 0 auto;
-        line-height: 1.7;
       }
 
       .testimonial-slider {
         position: relative;
+        margin-top: -20px;
         display: flex;
         align-items: center;
         gap: 20px;
@@ -2063,7 +2064,7 @@
         color: #111;
         padding: 42px 38px;
         border-radius: 22px;
-        box-shadow: 0 18px 45px rgba(0, 0, 0, .28);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         backdrop-filter: blur(8px);
       }
 
@@ -2300,7 +2301,6 @@
     <style>
       .why-shop {
         padding: 90px 20px;
-        background: linear-gradient(180deg, #fff8fb, #fff1f6);
       }
 
       .why-shop__container {
@@ -2441,7 +2441,7 @@
     <style>
       .newsletter-section {
         position: relative;
-        padding: 120px 20px;
+        padding: 30px 20px;
         background-image: url("https://images.unsplash.com/photo-1596464716127-f2a82984de30");
         background-size: cover;
         background-position: center;

@@ -1,0 +1,437 @@
+{% liquid
+  assign background_image_url = section.settings.background_image_url
+  if section.settings.background_image != blank
+    assign background_image_url = section.settings.background_image | image_url: width: 2400
+  endif
+
+  assign main_image_url = section.settings.main_image_url
+  if section.settings.main_image != blank
+    assign main_image_url = section.settings.main_image | image_url: width: 1600
+  elsif main_image_url == blank
+    assign main_image_url = 'img1.png' | asset_url
+  endif
+%}
+
+<section
+  class="beauty-hero"
+  {% if background_image_url != blank %}
+    style="background-image: url('{{ background_image_url }}');"
+  {% endif %}
+>
+  <div class="beauty-hero__overlay beauty-hero__overlay--top"></div>
+  <div class="beauty-hero__overlay beauty-hero__overlay--bottom"></div>
+
+  <div class="beauty-hero__inner">
+    <div class="beauty-hero__content">
+      {% if section.settings.brand_name != blank %}
+        <div class="beauty-hero__brand">{{ section.settings.brand_name }}</div>
+      {% endif %}
+
+      {% if section.settings.title != blank %}
+        <h1 class="beauty-hero__title">{{ section.settings.title | newline_to_br }}</h1>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <p class="beauty-hero__desc">{{ section.settings.description }}</p>
+      {% endif %}
+
+      {% if section.settings.offer_text != blank %}
+        <div class="beauty-hero__offer">{{ section.settings.offer_text }}</div>
+      {% endif %}
+
+      {% if section.settings.button_label != blank %}
+        <a href="{{ section.settings.button_link | default: '#' }}" class="beauty-hero__btn">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="beauty-hero__visual">
+      {% if main_image_url != blank %}
+        <img
+          class="beauty-hero__main-image"
+          src="{{ main_image_url }}"
+          alt="{{ section.settings.main_image_alt | default: section.settings.title | escape }}"
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% style %}
+  #shopify-section-{{ section.id }} .beauty-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: {{ section.settings.min_height }}px;
+    width: 100%;
+    background-color: {{ section.settings.background_color }};
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      {{ section.settings.overlay_color | color_modify: 'alpha', 0.82 }} 0%,
+      {{ section.settings.overlay_color | color_modify: 'alpha', 0.72 }} 34%,
+      {{ section.settings.overlay_color | color_modify: 'alpha', 0.26 }} 66%,
+      {{ section.settings.overlay_color | color_modify: 'alpha', 0.1 }} 100%
+    );
+    z-index: 0;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__overlay {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__overlay--top {
+    top: 0;
+    height: 42%;
+    z-index: 1;
+    background:
+      radial-gradient(circle at 10% 25%, rgba(255, 255, 255, 0.6) 0 38px, transparent 39px),
+      radial-gradient(circle at 23% 20%, rgba(255, 255, 255, 0.4) 0 27px, transparent 28px),
+      radial-gradient(circle at 40% 18%, rgba(255, 255, 255, 0.3) 0 34px, transparent 35px),
+      radial-gradient(circle at 63% 16%, rgba(255, 255, 255, 0.35) 0 42px, transparent 43px),
+      radial-gradient(circle at 79% 20%, rgba(255, 255, 255, 0.4) 0 30px, transparent 31px),
+      radial-gradient(circle at 91% 16%, rgba(255, 255, 255, 0.25) 0 22px, transparent 23px),
+      radial-gradient(circle at 14% 6%, rgba(255, 255, 255, 0.55) 0 7px, transparent 8px),
+      radial-gradient(circle at 36% 7%, rgba(255, 255, 255, 0.48) 0 5px, transparent 6px),
+      radial-gradient(circle at 58% 10%, rgba(255, 255, 255, 0.5) 0 6px, transparent 7px),
+      radial-gradient(circle at 86% 8%, rgba(255, 255, 255, 0.45) 0 6px, transparent 7px);
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__overlay--bottom {
+    bottom: 0;
+    height: 26%;
+    z-index: 1;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.829)),
+      radial-gradient(circle at 10% 60%, rgba(255, 255, 255, 0.35) 0 34px, transparent 35px),
+      radial-gradient(circle at 26% 55%, rgba(255, 255, 255, 0.22) 0 28px, transparent 29px),
+      radial-gradient(circle at 47% 68%, rgba(255, 255, 255, 0.2) 0 32px, transparent 33px),
+      radial-gradient(circle at 70% 58%, rgba(255, 255, 255, 0.2) 0 26px, transparent 27px),
+      radial-gradient(circle at 88% 62%, rgba(255, 255, 255, 0.25) 0 34px, transparent 35px);
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__inner {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: end;
+    gap: 10px;
+    min-height: {{ section.settings.min_height }}px;
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top }}px 50px {{ section.settings.padding_bottom }}px;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__content {
+    max-width: 420px;
+    padding-left: 18px;
+    padding-bottom: 130px;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__brand {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: {{ section.settings.brand_color }};
+    margin-bottom: 6px;
+    letter-spacing: 0.2px;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__title {
+    margin: 0;
+    color: {{ section.settings.title_color }};
+    font-size: 64px;
+    line-height: 0.95;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__desc {
+    margin: 10px 0 12px;
+    max-width: 330px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 1.18;
+    color: {{ section.settings.description_color }};
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__offer {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: {{ section.settings.offer_color }};
+    margin-bottom: 18px;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 126px;
+    height: 30px;
+    padding: 0 18px;
+    background: {{ section.settings.button_background }};
+    color: {{ section.settings.button_text_color }};
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    border-radius: 4px;
+    letter-spacing: 0.2px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.16);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__btn:hover {
+    transform: translateY(-1px);
+    opacity: 0.92;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__visual {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    min-height: {{ section.settings.min_height }}px;
+  }
+
+  #shopify-section-{{ section.id }} .beauty-hero__main-image {
+    display: block;
+    width: min(100%, 760px);
+    max-width: 760px;
+    object-fit: contain;
+    object-position: bottom center;
+    margin-bottom: 0;
+    filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0.12));
+  }
+
+  @media (max-width: 991px) {
+    #shopify-section-{{ section.id }} .beauty-hero__inner {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: {{ section.settings.padding_top }}px 24px 28px;
+      text-align: center;
+      align-items: center;
+    }
+
+    #shopify-section-{{ section.id }} .beauty-hero__content {
+      max-width: 100%;
+      padding-left: 0;
+      padding-bottom: 0;
+      margin: 0 auto;
+    }
+
+    #shopify-section-{{ section.id }} .beauty-hero__desc {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 520px;
+    }
+
+    #shopify-section-{{ section.id }} .beauty-hero__visual {
+      min-height: auto;
+    }
+
+    #shopify-section-{{ section.id }} .beauty-hero__main-image {
+      max-width: 540px;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 640px) {
+    #shopify-section-{{ section.id }} .beauty-hero {
+      min-height: auto;
+    }
+
+    #shopify-section-{{ section.id }} .beauty-hero__inner {
+      padding: 30px 16px 22px;
+    }
+
+    #shopify-section-{{ section.id }} .beauty-hero__title {
+      font-size: 42px;
+    }
+
+    #shopify-section-{{ section.id }} .beauty-hero__brand {
+      font-size: 16px;
+    }
+
+    #shopify-section-{{ section.id }} .beauty-hero__offer {
+      font-size: 18px;
+    }
+
+    #shopify-section-{{ section.id }} .beauty-hero__desc {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    #shopify-section-{{ section.id }} .beauty-hero__main-image {
+      max-width: 100%;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Beauty Hero",
+  "tag": "section",
+  "class": "section-beauty-hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand name",
+      "default": "Brand Name"
+    },
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Heading",
+      "default": "BEAUTY\nCOSMETIC"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation"
+    },
+    {
+      "type": "text",
+      "id": "offer_text",
+      "label": "Offer text",
+      "default": "UP TO 50% OFF"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "ORDER NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "background_image_url",
+      "label": "Fallback background image URL",
+      "default": "https://pittsburghocdtreatment.com/wp-content/uploads/2026/01/pink-glittery-backdrop-scrapbooking-sparkle-background-wallpaper-stockpack-pixabay.png"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main image"
+    },
+    {
+      "type": "text",
+      "id": "main_image_url",
+      "label": "Fallback main image URL"
+    },
+    {
+      "type": "text",
+      "id": "main_image_alt",
+      "label": "Main image alt text",
+      "default": "Beauty cosmetics"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f8d6e0"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#f8d6e0"
+    },
+    {
+      "type": "color",
+      "id": "brand_color",
+      "label": "Brand text color",
+      "default": "#4b4b4b"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Heading color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#555555"
+    },
+    {
+      "type": "color",
+      "id": "offer_color",
+      "label": "Offer color",
+      "default": "#222222"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#050505"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Minimum height",
+      "min": 420,
+      "max": 900,
+      "step": 20,
+      "default": 560,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 42,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 0,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Beauty Hero"
+    }
+  ]
+}
+{% endschema %}

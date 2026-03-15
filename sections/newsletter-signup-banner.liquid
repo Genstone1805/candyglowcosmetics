@@ -1,0 +1,330 @@
+{% liquid
+  assign background_image_url = section.settings.background_image_url
+  assign overlay_alpha = section.settings.overlay_opacity | divided_by: 100.0
+  if section.settings.background_image != blank
+    assign background_image_url = section.settings.background_image | image_url: width: 2400
+  endif
+%}
+
+<section
+  class="newsletter-section"
+  {% if background_image_url != blank %}
+    style="background-image: url('{{ background_image_url }}');"
+  {% endif %}
+>
+  <div class="newsletter-overlay"></div>
+
+  <div class="newsletter-container">
+    {% if section.settings.label != blank %}
+      <span class="newsletter-label">{{ section.settings.label }}</span>
+    {% endif %}
+
+    {% if section.settings.title != blank %}
+      <h2 class="newsletter-title">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    {% if section.settings.text != blank %}
+      <p class="newsletter-text">{{ section.settings.text }}</p>
+    {% endif %}
+
+    {% form 'customer', class: 'newsletter-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <input
+        type="email"
+        name="contact[email]"
+        value="{{ form.email }}"
+        placeholder="{{ section.settings.placeholder }}"
+        aria-label="{{ section.settings.placeholder }}"
+        autocorrect="off"
+        autocapitalize="off"
+        required
+      >
+
+      <button type="submit">{{ section.settings.button_label }}</button>
+
+      {% if form.posted_successfully? %}
+        <p class="newsletter-feedback newsletter-feedback--success">{{ section.settings.success_message }}</p>
+      {% endif %}
+
+      {{ form.errors | default_errors }}
+    {% endform %}
+
+    {% if section.settings.note != blank %}
+      <small class="newsletter-note">{{ section.settings.note }}</small>
+    {% endif %}
+  </div>
+</section>
+
+{% style %}
+  #shopify-section-{{ section.id }} .newsletter-section {
+    position: relative;
+    padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.fallback_background }};
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-overlay {
+    position: absolute;
+    inset: 0;
+    background: {{ section.settings.overlay_color | color_modify: 'alpha', overlay_alpha }};
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-container {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    color: {{ section.settings.heading_color }};
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-label {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-title {
+    font-size: 40px;
+    font-family: Georgia, serif;
+    margin-bottom: 14px;
+    color: {{ section.settings.heading_color }};
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-text {
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 520px;
+    margin: 0 auto 30px;
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 520px;
+    margin: auto;
+    flex-wrap: wrap;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-form input {
+    flex: 1;
+    min-width: 240px;
+    padding: 16px 18px;
+    border-radius: 30px;
+    border: none;
+    font-size: 14px;
+    outline: none;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-form button {
+    padding: 16px 26px;
+    border: none;
+    border-radius: 30px;
+    background: {{ section.settings.button_background }};
+    color: {{ section.settings.button_text_color }};
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-note {
+    display: block;
+    margin-top: 14px;
+    font-size: 12px;
+    color: {{ section.settings.note_color }};
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-feedback {
+    width: 100%;
+    margin: 14px 0 0;
+    font-size: 14px;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-feedback--success {
+    color: {{ section.settings.success_color }};
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-form .errors,
+  #shopify-section-{{ section.id }} .newsletter-form .form__message {
+    width: 100%;
+    color: #ffffff;
+  }
+
+  @media (max-width: 600px) {
+    #shopify-section-{{ section.id }} .newsletter-title {
+      font-size: 30px;
+    }
+
+    #shopify-section-{{ section.id }} .newsletter-form {
+      flex-direction: column;
+    }
+
+    #shopify-section-{{ section.id }} .newsletter-form button {
+      width: 100%;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Newsletter Signup Banner",
+  "tag": "section",
+  "class": "section-newsletter-signup-banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Join the Beauty Club"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Subscribe for Glow Updates"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Be the first to hear about new launches, limited founder batches, beauty tips, and exclusive offers designed to keep your glow effortless."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Input placeholder",
+      "default": "Enter your email address"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thanks for subscribing."
+    },
+    {
+      "type": "textarea",
+      "id": "note",
+      "label": "Note",
+      "default": "No spam. Just glow-worthy updates and exclusive offers."
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "background_image_url",
+      "label": "Fallback background image URL",
+      "default": "https://images.unsplash.com/photo-1596464716127-f2a82984de30"
+    },
+    {
+      "type": "color",
+      "id": "fallback_background",
+      "label": "Fallback background color",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 65,
+      "unit": "%"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#d9d9d9"
+    },
+    {
+      "type": "color",
+      "id": "note_color",
+      "label": "Note color",
+      "default": "#b7b7b7"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "success_color",
+      "label": "Success message color",
+      "default": "#d3ffd6"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "default": 120,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 180,
+      "step": 4,
+      "default": 120,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter Signup Banner"
+    }
+  ]
+}
+{% endschema %}

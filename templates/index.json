@@ -1,0 +1,356 @@
+{
+  "sections": {
+    "hero": {
+      "type": "beauty-hero",
+      "settings": {
+        "button_link": "#"
+      }
+    },
+    "values": {
+      "type": "beauty-values",
+      "blocks": {
+        "value_1": {
+          "type": "value",
+          "settings": {
+            "icon": "✦",
+            "heading": "Founder-led brand",
+            "text": "Every product is thoughtfully selected with care, quality, and real everyday wear in mind.",
+            "highlight": false
+          }
+        },
+        "value_2": {
+          "type": "value",
+          "settings": {
+            "icon": "✦",
+            "heading": "Fast, reliable shipping",
+            "text": "Your glow essentials are packed and delivered with speed, care, and dependable service.",
+            "highlight": false
+          }
+        },
+        "value_3": {
+          "type": "value",
+          "settings": {
+            "icon": "✦",
+            "heading": "Secure checkout",
+            "text": "Shop confidently with a smooth, protected checkout experience built for peace of mind.",
+            "highlight": false
+          }
+        },
+        "value_4": {
+          "type": "value",
+          "settings": {
+            "icon": "✦",
+            "heading": "Vegan & Cruelty Free",
+            "text": "Clean beauty choices that align with conscious values without compromising on performance.",
+            "highlight": true
+          }
+        }
+      },
+      "block_order": ["value_1", "value_2", "value_3", "value_4"],
+      "settings": {}
+    },
+    "featured": {
+      "type": "featured-products-grid",
+      "blocks": {
+        "product_1": {
+          "type": "product_card",
+          "settings": {
+            "image_url": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg",
+            "title": "Founder Glow Lipstick",
+            "description": "A richly pigmented lipstick that delivers smooth application and a radiant finish for everyday wear.",
+            "price_text": "$24.00",
+            "link": "/products/founder-glow-lipstick",
+            "button_label": "View Product"
+          }
+        },
+        "product_2": {
+          "type": "product_card",
+          "settings": {
+            "image_url": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg",
+            "title": "Velvet Touch Blush",
+            "description": "Lightweight and buildable blush designed to add a soft, natural-looking flush to your complexion.",
+            "price_text": "$19.00",
+            "link": "/products/velvet-touch-blush",
+            "button_label": "View Product"
+          }
+        },
+        "product_3": {
+          "type": "product_card",
+          "settings": {
+            "image_url": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg",
+            "title": "Luminous Skin Serum",
+            "description": "A skin-first formula crafted to hydrate, brighten, and prep your skin for a flawless makeup base.",
+            "price_text": "$32.00",
+            "link": "/products/luminous-skin-serum",
+            "button_label": "View Product"
+          }
+        },
+        "product_4": {
+          "type": "product_card",
+          "settings": {
+            "image_url": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg",
+            "title": "Satin Glow Foundation",
+            "description": "Medium-coverage foundation with a breathable feel and luminous finish that lasts throughout the day.",
+            "price_text": "$38.00",
+            "link": "/products/satin-glow-foundation",
+            "button_label": "View Product"
+          }
+        },
+        "product_5": {
+          "type": "product_card",
+          "settings": {
+            "image_url": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg",
+            "title": "Glossy Nude Collection",
+            "description": "A flattering gloss set with smooth shine, comfortable wear, and versatile nude shades for every mood.",
+            "price_text": "$29.00",
+            "link": "/products/glossy-nude-collection",
+            "button_label": "View Product"
+          }
+        },
+        "product_6": {
+          "type": "product_card",
+          "settings": {
+            "image_url": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg",
+            "title": "Clean Beauty Kit",
+            "description": "An all-in-one starter kit featuring glow-enhancing favorites perfect for gifting or upgrading your routine.",
+            "price_text": "$55.00",
+            "link": "/products/clean-beauty-kit",
+            "button_label": "View Product"
+          }
+        }
+      },
+      "block_order": ["product_1", "product_2", "product_3", "product_4", "product_5", "product_6"],
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "customer-testimonials-slider",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Amara O.",
+            "rating": 5,
+            "quote": "I genuinely love how premium everything feels. The products apply smoothly and give a beautiful glow without feeling heavy."
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Tolu E.",
+            "rating": 5,
+            "quote": "Shipping was fast and the checkout process was seamless. The products have now become part of my daily routine."
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Ifeoma J.",
+            "rating": 5,
+            "quote": "The texture and finish are amazing. You can tell these formulas were crafted with care."
+          }
+        },
+        "testimonial_4": {
+          "type": "testimonial",
+          "settings": {
+            "author": "Zainab M.",
+            "rating": 5,
+            "quote": "The glow is natural and elegant. I get compliments every time I wear it."
+          }
+        }
+      },
+      "block_order": ["testimonial_1", "testimonial_2", "testimonial_3", "testimonial_4"],
+      "settings": {}
+    },
+    "founder": {
+      "type": "founder-story",
+      "blocks": {
+        "paragraph_1": {
+          "type": "paragraph",
+          "settings": {
+            "text": "Candy Glow was born from a belief that beauty should be intentional, joyful, and accessible."
+          }
+        },
+        "paragraph_2": {
+          "type": "paragraph",
+          "settings": {
+            "text": "These original formulas represent the very beginning — crafted in small batches with care and heart."
+          }
+        },
+        "paragraph_3": {
+          "type": "paragraph",
+          "settings": {
+            "text": "What remains is limited — and every purchase means you’re part of our story."
+          }
+        },
+        "button_1": {
+          "type": "button",
+          "settings": {
+            "label": "Learn Our Story",
+            "link": "/pages/our-story",
+            "style": "secondary"
+          }
+        },
+        "button_2": {
+          "type": "button",
+          "settings": {
+            "label": "Get the Founder Glow Essentials",
+            "link": "/collections/founder-glow-essentials",
+            "style": "primary"
+          }
+        }
+      },
+      "block_order": ["paragraph_1", "paragraph_2", "paragraph_3", "button_1", "button_2"],
+      "settings": {}
+    },
+    "why_shop": {
+      "type": "why-shop-with-us",
+      "blocks": {
+        "card_1": {
+          "type": "card",
+          "settings": {
+            "icon": "🚚",
+            "heading": "Fast & Reliable Shipping",
+            "text": "Your glow essentials are processed quickly and shipped with care so you receive them without delays."
+          }
+        },
+        "card_2": {
+          "type": "card",
+          "settings": {
+            "icon": "🌿",
+            "heading": "Skin-Safe Ingredients",
+            "text": "Our formulas are thoughtfully created to be gentle, safe, and supportive of healthy, radiant skin."
+          }
+        },
+        "card_3": {
+          "type": "card",
+          "settings": {
+            "icon": "🔒",
+            "heading": "100% Secure Checkout",
+            "text": "Shop confidently with encrypted and secure payment systems designed to protect every transaction."
+          }
+        },
+        "card_4": {
+          "type": "card",
+          "settings": {
+            "icon": "↩️",
+            "heading": "Hassle-Free Returns",
+            "text": "If something isn’t right, our easy return process ensures your experience stays smooth and worry-free."
+          }
+        }
+      },
+      "block_order": ["card_1", "card_2", "card_3", "card_4"],
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter-signup-banner",
+      "settings": {}
+    },
+    "footer": {
+      "type": "brand-footer",
+      "blocks": {
+        "menu_1": {
+          "type": "menu_column",
+          "settings": {
+            "heading": "Quick Links"
+          }
+        },
+        "menu_2": {
+          "type": "menu_column",
+          "settings": {
+            "heading": "Information"
+          }
+        },
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "heading": "✨ Limited Batch Beauty",
+            "text": "Every product is part of our founder’s edition collection — created with care and available only while supplies last."
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "heading": "🌿 Clean & Cruelty-Free",
+            "text": "We prioritize vegan, cruelty-free ingredients and a clean beauty philosophy."
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "heading": "💫 Everyday Confidence",
+            "text": "Candy Glow enhances your natural beauty — from a soft daily glow to a bold finish."
+          }
+        },
+        "social_1": {
+          "type": "social_link",
+          "settings": {
+            "label": "Facebook",
+            "link": "#"
+          }
+        },
+        "social_2": {
+          "type": "social_link",
+          "settings": {
+            "label": "Instagram",
+            "link": "#"
+          }
+        },
+        "social_3": {
+          "type": "social_link",
+          "settings": {
+            "label": "TikTok",
+            "link": "#"
+          }
+        },
+        "social_4": {
+          "type": "social_link",
+          "settings": {
+            "label": "X (Twitter)",
+            "link": "#"
+          }
+        },
+        "payment_1": {
+          "type": "payment_method",
+          "settings": {
+            "label": "Visa"
+          }
+        },
+        "payment_2": {
+          "type": "payment_method",
+          "settings": {
+            "label": "Mastercard"
+          }
+        },
+        "payment_3": {
+          "type": "payment_method",
+          "settings": {
+            "label": "PayPal"
+          }
+        },
+        "payment_4": {
+          "type": "payment_method",
+          "settings": {
+            "label": "Apple Pay"
+          }
+        }
+      },
+      "block_order": [
+        "menu_1",
+        "menu_2",
+        "feature_1",
+        "feature_2",
+        "feature_3",
+        "social_1",
+        "social_2",
+        "social_3",
+        "social_4",
+        "payment_1",
+        "payment_2",
+        "payment_3",
+        "payment_4"
+      ],
+      "settings": {}
+    }
+  },
+  "order": ["hero", "values", "featured", "testimonials", "founder", "why_shop", "newsletter", "footer"]
+}

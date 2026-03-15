@@ -1,0 +1,2845 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- HOME BANNER -->
+  <section class="beauty-hero">
+    <div class="beauty-hero__overlay beauty-hero__overlay--top"></div>
+    <div class="beauty-hero__overlay beauty-hero__overlay--bottom"></div>
+
+    <div class="beauty-hero__inner">
+      <div class="beauty-hero__content">
+        <div class="beauty-hero__brand">Brand Name</div>
+
+        <h1 class="beauty-hero__title">
+          BEAUTY<br>
+          COSMETIC
+        </h1>
+
+        <p class="beauty-hero__desc">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+        </p>
+
+        <div class="beauty-hero__offer">UP TO 50% OFF</div>
+
+        <a href="#" class="beauty-hero__btn">ORDER NOW</a>
+      </div>
+
+      <div class="beauty-hero__visual">
+        <img class="beauty-hero__main-image" src="/img1.png" alt="Beauty cosmetics">
+      </div>
+    </div>
+    <style>
+      .beauty-hero {
+        position: relative;
+        overflow: hidden;
+        min-height: 560px;
+        width: 100%;
+        background-image: url("https://pittsburghocdtreatment.com/wp-content/uploads/2026/01/pink-glittery-backdrop-scrapbooking-sparkle-background-wallpaper-stockpack-pixabay.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      .beauty-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg,
+            rgba(248, 214, 224, 0.82) 0%,
+            rgba(248, 214, 224, 0.72) 34%,
+            rgba(248, 214, 224, 0.26) 66%,
+            rgba(248, 214, 224, 0.1) 100%);
+        z-index: 0;
+      }
+
+      .beauty-hero__overlay {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        pointer-events: none;
+      }
+
+      .beauty-hero__overlay--top {
+        top: 0;
+        height: 42%;
+        z-index: 1;
+        background:
+          radial-gradient(circle at 10% 25%, rgba(255, 255, 255, .6) 0 38px, transparent 39px),
+          radial-gradient(circle at 23% 20%, rgba(255, 255, 255, .4) 0 27px, transparent 28px),
+          radial-gradient(circle at 40% 18%, rgba(255, 255, 255, .3) 0 34px, transparent 35px),
+          radial-gradient(circle at 63% 16%, rgba(255, 255, 255, .35) 0 42px, transparent 43px),
+          radial-gradient(circle at 79% 20%, rgba(255, 255, 255, .4) 0 30px, transparent 31px),
+          radial-gradient(circle at 91% 16%, rgba(255, 255, 255, .25) 0 22px, transparent 23px),
+          radial-gradient(circle at 14% 6%, rgba(255, 255, 255, .55) 0 7px, transparent 8px),
+          radial-gradient(circle at 36% 7%, rgba(255, 255, 255, .48) 0 5px, transparent 6px),
+          radial-gradient(circle at 58% 10%, rgba(255, 255, 255, .5) 0 6px, transparent 7px),
+          radial-gradient(circle at 86% 8%, rgba(255, 255, 255, .45) 0 6px, transparent 7px);
+      }
+
+      .beauty-hero__overlay--bottom {
+        bottom: 0;
+        height: 26%;
+        z-index: 1;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.829)),
+          radial-gradient(circle at 10% 60%, rgba(255, 255, 255, .35) 0 34px, transparent 35px),
+          radial-gradient(circle at 26% 55%, rgba(255, 255, 255, .22) 0 28px, transparent 29px),
+          radial-gradient(circle at 47% 68%, rgba(255, 255, 255, .2) 0 32px, transparent 33px),
+          radial-gradient(circle at 70% 58%, rgba(255, 255, 255, .2) 0 26px, transparent 27px),
+          radial-gradient(circle at 88% 62%, rgba(255, 255, 255, .25) 0 34px, transparent 35px);
+      }
+
+      .beauty-hero__inner {
+        position: relative;
+        z-index: 3;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: end;
+        gap: 10px;
+        min-height: 560px;
+        max-width: 1380px;
+        margin: 0 auto;
+        padding: 42px 50px 0;
+      }
+
+      .beauty-hero__content {
+        max-width: 420px;
+        padding-left: 18px;
+        padding-bottom: 130px;
+      }
+
+      .beauty-hero__brand {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        color: #4b4b4b;
+        margin-bottom: 6px;
+        letter-spacing: .2px;
+      }
+
+      .beauty-hero__title {
+        margin: 0;
+        color: #111;
+        font-size: 64px;
+        line-height: .95;
+        font-weight: 500;
+        letter-spacing: 0;
+      }
+
+      .beauty-hero__desc {
+        margin: 10px 0 12px;
+        max-width: 430px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        line-height: 1.2;
+        color: #555;
+      }
+
+      .beauty-hero__offer {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: #222;
+        margin-bottom: 18px;
+      }
+
+      .beauty-hero__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 126px;
+        height: 30px;
+        padding: 0 18px;
+        background: #050505;
+        color: #fff;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        border-radius: 4px;
+        letter-spacing: .2px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, .16);
+        transition: transform .25s ease, opacity .25s ease;
+      }
+
+      .beauty-hero__btn:hover {
+        transform: translateY(-1px);
+        opacity: .92;
+      }
+
+      .beauty-hero__visual {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        min-height: 560px;
+      }
+
+      .beauty-hero__main-image {
+        display: block;
+        width: min(100%, 760px);
+        max-width: 760px;
+        object-fit: contain;
+        object-position: bottom center;
+        margin-bottom: 0;
+        filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0.12));
+      }
+
+      @media (max-width: 991px) {
+        .beauty-hero__inner {
+          grid-template-columns: 1fr;
+          gap: 18px;
+          padding: 42px 24px 28px;
+          text-align: center;
+          align-items: center;
+        }
+
+        .beauty-hero__content {
+          max-width: 100%;
+          padding-left: 0;
+          padding-bottom: 0;
+          margin: 0 auto;
+        }
+
+        .beauty-hero__desc {
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 520px;
+        }
+
+        .beauty-hero__visual {
+          min-height: auto;
+        }
+
+        .beauty-hero__main-image {
+          max-width: 540px;
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .beauty-hero {
+          min-height: auto;
+        }
+
+        .beauty-hero__inner {
+          padding: 30px 16px 22px;
+        }
+
+        .beauty-hero__title {
+          font-size: 42px;
+        }
+
+        .beauty-hero__brand {
+          font-size: 16px;
+        }
+
+        .beauty-hero__offer {
+          font-size: 18px;
+        }
+
+        .beauty-hero__desc {
+          font-size: 12px;
+          line-height: 1.4;
+        }
+
+        .beauty-hero__main-image {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </section>
+
+  <!-- credibility slidwr -->
+  <div class="top-marquee" data-speed="35">
+    <div class="top-marquee__viewport">
+      <div class="top-marquee__track">
+        <div class="top-marquee__group">
+          <div class="top-marquee__item">
+            <span class="top-marquee__icon">✓</span>
+            <span>Safe for all skin types</span>
+          </div>
+
+          <div class="top-marquee__item">
+            <span class="top-marquee__icon">✓</span>
+            <span>Cruelty free</span>
+          </div>
+
+          <div class="top-marquee__item">
+            <span class="top-marquee__icon">✓</span>
+            <span>Made in USA</span>
+          </div>
+
+          <div class="top-marquee__item">
+            <span class="top-marquee__icon">✓</span>
+            <span>Money back Guarantee</span>
+          </div>
+
+          <div class="top-marquee__item">
+            <span class="top-marquee__icon">✓</span>
+            <span>FAST SHIPPING</span>
+          </div>
+
+          <div class="top-marquee__item">
+            <span class="top-marquee__icon">✓</span>
+            <span>SATISFACTION GUARANTEED</span>
+          </div>
+        </div>
+
+        <!-- duplicated automatically by JS if you want; this copy also works -->
+        <div class="top-marquee__group">
+          <div class="top-marquee__item">
+            <span class="top-marquee__icon">✓</span>
+            <span>Safe for all skin types</span>
+          </div>
+
+          <div class="top-marquee__item">
+            <span class="top-marquee__icon">✓</span>
+            <span>Cruelty free</span>
+          </div>
+
+          <div class="top-marquee__item">
+            <span class="top-marquee__icon">✓</span>
+            <span>Made in USA</span>
+          </div>
+
+          <div class="top-marquee__item">
+            <span class="top-marquee__icon">✓</span>
+            <span>Money back Guarantee</span>
+          </div>
+
+          <div class="top-marquee__item">
+            <span class="top-marquee__icon">✓</span>
+            <span>FAST SHIPPING</span>
+          </div>
+
+          <div class="top-marquee__item">
+            <span class="top-marquee__icon">✓</span>
+            <span>SATISFACTION GUARANTEED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      .top-marquee {
+        background: #050505;
+        color: #ffffff;
+        width: 100%;
+        overflow: hidden;
+        border-top: 1px solid #050505;
+        border-bottom: 1px solid #050505;
+      }
+
+      .top-marquee__viewport {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .top-marquee__track {
+        display: flex;
+        width: max-content;
+        will-change: transform;
+      }
+
+      .top-marquee__group {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .top-marquee__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        min-height: 48px;
+        padding: 10px 42px;
+        white-space: nowrap;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 0.01em;
+      }
+
+      .top-marquee__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        font-size: 13px;
+        line-height: 1;
+        color: #ffffff;
+      }
+
+      @media (max-width: 767px) {
+        .top-marquee__item {
+          padding: 10px 24px;
+          font-size: 12px;
+          gap: 10px;
+          min-height: 42px;
+        }
+
+        .top-marquee__icon {
+          width: 16px;
+          height: 16px;
+          font-size: 12px;
+        }
+      }
+    </style>
+    <script>
+      (() => {
+        const marquee = document.querySelector(".top-marquee");
+        if (!marquee) return;
+
+        const track = marquee.querySelector(".top-marquee__track");
+        const groups = marquee.querySelectorAll(".top-marquee__group");
+
+        let isPaused = false;
+        let position = 0;
+        let animationId = null;
+
+        const speed = Number(marquee.dataset.speed) || 35; // pixels per second
+        let lastTime = null;
+
+        if (groups.length === 1) {
+          track.appendChild(groups[0].cloneNode(true));
+        }
+
+        const getLoopWidth = () => {
+          const firstGroup = marquee.querySelector(".top-marquee__group");
+          return firstGroup ? firstGroup.offsetWidth : 0;
+        };
+
+        const animate = (time) => {
+          if (!lastTime) lastTime = time;
+          const delta = (time - lastTime) / 1000;
+          lastTime = time;
+
+          if (!isPaused) {
+            position -= speed * delta;
+
+            const loopWidth = getLoopWidth();
+            if (loopWidth > 0 && Math.abs(position) >= loopWidth) {
+              position += loopWidth;
+            }
+
+            track.style.transform = `translate3d(${position}px, 0, 0)`;
+          }
+
+          animationId = requestAnimationFrame(animate);
+        };
+
+        marquee.addEventListener("mouseenter", () => {
+          isPaused = true;
+        });
+
+        marquee.addEventListener("mouseleave", () => {
+          isPaused = false;
+        });
+
+        window.addEventListener("resize", () => {
+          const loopWidth = getLoopWidth();
+          if (loopWidth > 0) {
+            position = position % loopWidth;
+            track.style.transform = `translate3d(${position}px, 0, 0)`;
+          }
+        });
+
+        animationId = requestAnimationFrame(animate);
+      })();
+    </script>
+  </div>
+
+  <!-- About Founder -->
+  <section class="founder-section">
+
+    <div class="founder-container">
+
+      <div class="founder-image">
+        <img
+          src="https://candyglowcosmetics.com/cdn/shop/files/Untitled_design_-_2026-01-30T013653.577.png?v=1771550053&width=750"
+          alt="Candy Glow Founder">
+      </div>
+
+      <div class="founder-content">
+
+        <span class="founder-label">
+          Founder Story
+        </span>
+
+        <h2 class="founder-title">
+          Meet the Founder Behind the Glow
+        </h2>
+
+        <p class="founder-text">
+          Candy Glow was born from a belief that beauty should be intentional,
+          joyful, and accessible.
+        </p>
+
+        <p class="founder-text">
+          These original formulas represent the very beginning — crafted in
+          small batches with care and heart.
+        </p>
+
+        <p class="founder-text">
+          What remains is limited — and every purchase means you’re part
+          of our story.
+        </p>
+
+        <div class="founder-buttons">
+
+          <a href="/pages/our-story" class="btn-outline">
+            Learn Our Story
+          </a>
+
+          <a href="/collections/founder-glow-essentials" class="btn-primary">
+            Get the Founder Glow Essentials
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <style>
+      .founder-section {
+        padding: 100px 20px;
+        /* background: linear-gradient(180deg, #fff6f9, #fff1f6); */
+      }
+
+      .founder-container {
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .founder-image {
+        position: relative;
+      }
+
+      .founder-image img {
+        width: 100%;
+        border-radius: 28px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, .15);
+        object-fit: cover;
+      }
+
+      .founder-label {
+        display: inline-block;
+        background: #fff;
+        border: 1px solid #ffd6e6;
+        color: #c53a7a;
+        padding: 8px 16px;
+        border-radius: 30px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+
+      .founder-title {
+        font-size: 40px;
+        font-family: Georgia, serif;
+        margin-bottom: 20px;
+        color: #1d0f15;
+      }
+
+      .founder-text {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #6b5b61;
+        margin-bottom: 16px;
+      }
+
+      .founder-buttons {
+        margin-top: 26px;
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        background: #111;
+        color: white;
+        padding: 14px 26px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: .3s;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
+      }
+
+      .btn-outline {
+        border: 1px solid #111;
+        color: #111;
+        padding: 14px 26px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        background: white;
+        transition: .3s;
+      }
+
+      .btn-outline:hover {
+        background: #111;
+        color: white;
+      }
+
+      @media(max-width:900px) {
+
+        .founder-container {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .founder-title {
+          font-size: 32px;
+        }
+
+      }
+    </style>
+  </section>
+
+  <!-- Featured Products 2 -->
+  <section class="featured-products">
+    <h2 class="featured-title">Featured Products</h2>
+
+    <div class="product-slider" id="featuredProductSlider">
+      <button class="slider-nav slider-nav--prev" aria-label="Previous products">
+        &#10094;
+      </button>
+
+      <div class="product-slider__viewport">
+        <div class="product-slider__track">
+          <!-- PRODUCT CARD -->
+          <div class="product-slide">
+            <div class="product-card">
+              <div class="product-media">
+                <span class="sale-badge">Save $29.96</span>
+                <img
+                  src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                  alt="Kojic Acid Tumeric Night Wrapping Mask">
+                <div class="slider-dots">
+                  <span class="active"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="product-info">
+                <h3>Kojic Acid Tumeric Night Wrapping Mask</h3>
+                <p>5 Reasons Everyone Is Using Our Kojic Acid Tumeric...</p>
+                <div class="price-row">
+                  <span class="price">$49.99</span>
+                  <span class="compare">$79.95</span>
+                </div>
+                <button class="product-btn">View Product</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRODUCT CARD -->
+          <div class="product-slide">
+            <div class="product-card">
+              <div class="product-media">
+                <span class="sale-badge">Save $40.00</span>
+                <img
+                  src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                  alt="Salmon PDRN Collagen Mask">
+                <div class="slider-dots">
+                  <span class="active"></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="product-info">
+                <h3>Salmon PDRN Collagen Mask</h3>
+                <p>Deep collagen treatment for glowing skin.</p>
+                <div class="price-row">
+                  <span class="price">$39.99</span>
+                  <span class="compare">$79.99</span>
+                </div>
+                <button class="product-btn">View Product</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRODUCT CARD -->
+          <div class="product-slide">
+            <div class="product-card">
+              <div class="product-media">
+                <span class="sale-badge">Save $15.00</span>
+                <img
+                  src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                  alt="Collagen Jelly Cream">
+                <div class="slider-dots">
+                  <span class="active"></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="product-info">
+                <h3>Collagen Jelly Cream with Niacinamide</h3>
+                <p>Hydrating jelly cream for smooth skin.</p>
+                <div class="price-row">
+                  <span class="price">$34.95</span>
+                  <span class="compare">$49.95</span>
+                </div>
+                <button class="product-btn">View Product</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRODUCT CARD -->
+          <div class="product-slide">
+            <div class="product-card">
+              <div class="product-media">
+                <span class="sale-badge">Save $20.00</span>
+                <img
+                  src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                  alt="No More Pore Pads">
+                <div class="slider-dots">
+                  <span class="active"></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="product-info">
+                <h3>No More Pore Pads</h3>
+                <p>For all skin types. Combination dry normal...</p>
+                <div class="price-row">
+                  <span class="price">$39.95</span>
+                  <span class="compare">$59.95</span>
+                </div>
+                <button class="product-btn">View Product</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRODUCT CARD -->
+          <div class="product-slide">
+            <div class="product-card">
+              <div class="product-media">
+                <span class="sale-badge">Save $45.00</span>
+                <img
+                  src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                  alt="Collagen Night Wrapping Mask">
+                <div class="slider-dots">
+                  <span class="active"></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="product-info">
+                <h3>Collagen Night Wrapping Mask (#1 Best Seller)</h3>
+                <p>Premium overnight collagen treatment.</p>
+                <div class="price-row">
+                  <span class="price">$45.00</span>
+                  <span class="compare">$90.00</span>
+                </div>
+                <button class="product-btn">View Product</button>
+              </div>
+            </div>
+          </div>
+          <!-- PRODUCT CARD -->
+          <div class="product-slide">
+            <div class="product-card">
+              <div class="product-media">
+                <span class="sale-badge">Save $29.96</span>
+                <img
+                  src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                  alt="Kojic Acid Tumeric Night Wrapping Mask">
+                <div class="slider-dots">
+                  <span class="active"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="product-info">
+                <h3>Kojic Acid Tumeric Night Wrapping Mask</h3>
+                <p>5 Reasons Everyone Is Using Our Kojic Acid Tumeric...</p>
+                <div class="price-row">
+                  <span class="price">$49.99</span>
+                  <span class="compare">$79.95</span>
+                </div>
+                <button class="product-btn">View Product</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRODUCT CARD -->
+          <div class="product-slide">
+            <div class="product-card">
+              <div class="product-media">
+                <span class="sale-badge">Save $40.00</span>
+                <img
+                  src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                  alt="Salmon PDRN Collagen Mask">
+                <div class="slider-dots">
+                  <span class="active"></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="product-info">
+                <h3>Salmon PDRN Collagen Mask</h3>
+                <p>Deep collagen treatment for glowing skin.</p>
+                <div class="price-row">
+                  <span class="price">$39.99</span>
+                  <span class="compare">$79.99</span>
+                </div>
+                <button class="product-btn">View Product</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRODUCT CARD -->
+          <div class="product-slide">
+            <div class="product-card">
+              <div class="product-media">
+                <span class="sale-badge">Save $15.00</span>
+                <img
+                  src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                  alt="Collagen Jelly Cream">
+                <div class="slider-dots">
+                  <span class="active"></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="product-info">
+                <h3>Collagen Jelly Cream with Niacinamide</h3>
+                <p>Hydrating jelly cream for smooth skin.</p>
+                <div class="price-row">
+                  <span class="price">$34.95</span>
+                  <span class="compare">$49.95</span>
+                </div>
+                <button class="product-btn">View Product</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRODUCT CARD -->
+          <div class="product-slide">
+            <div class="product-card">
+              <div class="product-media">
+                <span class="sale-badge">Save $20.00</span>
+                <img
+                  src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                  alt="No More Pore Pads">
+                <div class="slider-dots">
+                  <span class="active"></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="product-info">
+                <h3>No More Pore Pads</h3>
+                <p>For all skin types. Combination dry normal...</p>
+                <div class="price-row">
+                  <span class="price">$39.95</span>
+                  <span class="compare">$59.95</span>
+                </div>
+                <button class="product-btn">View Product</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- PRODUCT CARD -->
+          <div class="product-slide">
+            <div class="product-card">
+              <div class="product-media">
+                <span class="sale-badge">Save $45.00</span>
+                <img
+                  src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTExL3JtMzYyLTAxYS1tb2NrdXAuanBn.jpg"
+                  alt="Collagen Night Wrapping Mask">
+                <div class="slider-dots">
+                  <span class="active"></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="product-info">
+                <h3>Collagen Night Wrapping Mask (#1 Best Seller)</h3>
+                <p>Premium overnight collagen treatment.</p>
+                <div class="price-row">
+                  <span class="price">$45.00</span>
+                  <span class="compare">$90.00</span>
+                </div>
+                <button class="product-btn">View Product</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="slider-nav slider-nav--next" aria-label="Next products">
+        &#10095;
+      </button>
+    </div>
+
+    <div class="slider-pagination" id="featuredProductPagination"></div>
+
+    <style>
+      .featured-products {
+        padding: 60px 40px;
+        background: #f8f8f8;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .featured-title {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 40px;
+        font-weight: 600;
+      }
+
+      .product-slider {
+        position: relative;
+        width: 100%;
+        max-width: 1280px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .product-slider__viewport {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .product-slider__track {
+        display: flex;
+        gap: 20px;
+        transition: transform 0.45s ease;
+        will-change: transform;
+      }
+
+      .product-slide {
+        flex: 0 0 calc((100% - 80px) / 5);
+        min-width: 0;
+      }
+
+      .product-card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: 0.3s;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      .product-media {
+        position: relative;
+        text-align: center;
+      }
+
+      .product-media img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .sale-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: #ffe6e2;
+        color: #ff5b4d;
+        padding: 6px 10px;
+        font-size: 13px;
+        border-radius: 4px;
+        z-index: 2;
+      }
+
+      .slider-dots {
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        padding: 10px 0 0;
+      }
+
+      .slider-dots span {
+        width: 8px;
+        height: 8px;
+        background: #ccc;
+        border-radius: 50%;
+        display: block;
+      }
+
+      .slider-dots .active {
+        background: #000;
+      }
+
+      .product-info {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .product-info h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        line-height: 1.35;
+      }
+
+      .product-info p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 15px;
+      }
+
+      .price-row {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+      }
+
+      .price {
+        font-size: 18px;
+        font-weight: 700;
+        color: #ff5b4d;
+      }
+
+      .compare {
+        text-decoration: line-through;
+        color: #999;
+      }
+
+      .product-btn {
+        width: 100%;
+        padding: 14px;
+        background: #111;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: auto;
+      }
+
+      .product-btn:hover {
+        background: #000;
+      }
+
+      .slider-nav {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        border: 1px solid #d9d9d9;
+        background: #fff;
+        color: #111;
+        font-size: 22px;
+        cursor: pointer;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.25s ease;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      }
+
+      .slider-nav:hover:not(:disabled) {
+        background: #111;
+        color: #fff;
+        border-color: #111;
+      }
+
+      .slider-nav:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+        box-shadow: none;
+      }
+
+      .slider-pagination {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 22px;
+        flex-wrap: wrap;
+      }
+
+      .slider-pagination button {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: none;
+        background: #d0d0d0;
+        cursor: pointer;
+        padding: 0;
+        transition: 0.2s ease;
+      }
+
+      .slider-pagination button.active {
+        background: #111;
+        transform: scale(1.1);
+      }
+
+      @media (max-width: 1199px) {
+        .product-slide {
+          flex: 0 0 calc((100% - 40px) / 3);
+        }
+      }
+
+      @media (max-width: 767px) {
+        .featured-products {
+          padding: 50px 16px;
+        }
+
+        .product-slider {
+          gap: 10px;
+        }
+
+        .product-slide {
+          flex: 0 0 calc((100% - 20px) / 2);
+        }
+
+        .slider-nav {
+          width: 40px;
+          height: 40px;
+          font-size: 18px;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .product-slide {
+          flex: 0 0 100%;
+        }
+
+        .product-media img {
+          height: 260px;
+        }
+      }
+    </style>
+
+    <script>
+      (function () {
+        const slider = document.getElementById("featuredProductSlider");
+        if (!slider) return;
+
+        const viewport = slider.querySelector(".product-slider__viewport");
+        const track = slider.querySelector(".product-slider__track");
+        const slides = Array.from(slider.querySelectorAll(".product-slide"));
+        const prevBtn = slider.querySelector(".slider-nav--prev");
+        const nextBtn = slider.querySelector(".slider-nav--next");
+        const pagination = document.getElementById("featuredProductPagination");
+
+        let currentIndex = 0;
+        let slidesPerView = 1;
+        let maxIndex = 0;
+
+        function getSlidesPerView() {
+          if (window.innerWidth <= 540) return 1;
+          if (window.innerWidth <= 767) return 2;
+          if (window.innerWidth <= 1199) return 3;
+          return 5;
+        }
+
+        function getGap() {
+          const styles = window.getComputedStyle(track);
+          return parseFloat(styles.columnGap || styles.gap || 20);
+        }
+
+        function updateMetrics() {
+          slidesPerView = getSlidesPerView();
+          maxIndex = Math.max(0, slides.length - slidesPerView);
+
+          if (currentIndex > maxIndex) {
+            currentIndex = maxIndex;
+          }
+
+          renderPagination();
+          updateSlider();
+        }
+
+        function updateSlider() {
+          const viewportWidth = viewport.offsetWidth;
+          const trackWidth = track.scrollWidth;
+
+          const maxTranslate = trackWidth - viewportWidth;
+
+          const firstSlide = slides[0];
+          const gap = getGap();
+          const slideWidth = firstSlide.getBoundingClientRect().width;
+
+          let offset = currentIndex * (slideWidth + gap);
+
+          // Prevent cutting the last slide
+          offset = Math.min(offset, maxTranslate);
+
+          track.style.transform = `translateX(-${offset}px)`;
+
+          // Hide / show navigation buttons
+          if (offset <= 0) {
+            prevBtn.style.display = "none";
+          } else {
+            prevBtn.style.display = "flex";
+          }
+
+          // if (offset >= maxTranslate - 1) {
+          //   nextBtn.style.display = "none";
+          // } else {
+          //   nextBtn.style.display = "flex";
+          // }
+
+          updateActivePagination();
+        }
+
+        function goTo(index) {
+          currentIndex = Math.max(0, Math.min(index, maxIndex));
+          updateSlider();
+        }
+
+        function renderPagination() {
+          if (!pagination) return;
+
+          const totalPages = maxIndex + 1;
+          pagination.innerHTML = "";
+
+          for (let i = 0; i < totalPages; i++) {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.setAttribute("aria-label", `Go to slide group ${i + 1}`);
+            if (i === currentIndex) {
+              dot.classList.add("active");
+            }
+            dot.addEventListener("click", () => goTo(i));
+            pagination.appendChild(dot);
+          }
+        }
+
+        function updateActivePagination() {
+          if (!pagination) return;
+          const dots = pagination.querySelectorAll("button");
+          dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === currentIndex);
+          });
+        }
+
+        prevBtn.addEventListener("click", () => {
+          if (currentIndex > 0) {
+            goTo(currentIndex - 1);
+          }
+        });
+
+        nextBtn.addEventListener("click", () => {
+          if (currentIndex < maxIndex) {
+            goTo(currentIndex + 1);
+          }
+        });
+
+        let resizeTimer;
+        window.addEventListener("resize", () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(updateMetrics, 120);
+        });
+
+        updateMetrics();
+
+        // Optional basic swipe support
+        let startX = 0;
+        let endX = 0;
+
+        viewport.addEventListener("touchstart", (e) => {
+          startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        viewport.addEventListener("touchmove", (e) => {
+          endX = e.touches[0].clientX;
+        }, { passive: true });
+
+        viewport.addEventListener("touchend", () => {
+          const delta = startX - endX;
+
+          if (Math.abs(delta) < 40) return;
+
+          if (delta > 0 && currentIndex < maxIndex) {
+            goTo(currentIndex + 1);
+          } else if (delta < 0 && currentIndex > 0) {
+            goTo(currentIndex - 1);
+          }
+
+          startX = 0;
+          endX = 0;
+        });
+      })();
+    </script>
+  </section>
+
+
+  <!-- categories -->
+  <section class="skin-bento">
+    <div class="skin-bento__grid">
+      <!-- Card 1 -->
+      <article class="skin-card skin-card--tall">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80"
+          alt="Woman holding skincare bottle" class="skin-card__image" />
+        <div class="skin-card__overlay"></div>
+        <div class="skin-card__content">
+          <h3>Restore your skin’s natural regenerative ability</h3>
+          <a href="#" class="skin-card__btn">Reawaken Your DEJ</a>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="skin-card skin-card--wide">
+        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1400&q=80"
+          alt="Abstract skincare serum texture" class="skin-card__image" />
+        <div class="skin-card__overlay"></div>
+        <div class="skin-card__content">
+          <h3>What does your skin actually need?</h3>
+          <a href="#" class="skin-card__btn">Take the quiz</a>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="skin-card">
+        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1200&q=80"
+          alt="Skincare product tubes" class="skin-card__image" />
+        <div class="skin-card__overlay"></div>
+        <div class="skin-card__content">
+          <h3>Skin science designed for visible results</h3>
+          <a href="#" class="skin-card__btn">Shop formulas</a>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="skin-card skin-card--wide-bottom">
+        <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=1400&q=80"
+          alt="Beauty products lineup" class="skin-card__image" />
+        <div class="skin-card__overlay"></div>
+        <div class="skin-card__content">
+          <h3>Backed by science. Loved by skin.</h3>
+          <a href="#" class="skin-card__btn">Shop bestsellers</a>
+        </div>
+      </article>
+    </div>
+    <style>
+      .skin-bento {
+        padding: 18px;
+        background: #000;
+      }
+
+      .skin-bento__grid {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 340px 340px;
+        gap: 10px;
+      }
+
+      .skin-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 18px;
+        background: #111;
+        isolation: isolate;
+      }
+
+      .skin-card--tall {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+      }
+
+      .skin-card--wide {
+        grid-column: 2 / 4;
+        grid-row: 1 / 2;
+      }
+
+      .skin-card--wide-bottom {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+      }
+
+      .skin-card__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transform: scale(1);
+        transition: transform 0.6s ease;
+      }
+
+      .skin-card__overlay {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg,
+            rgba(0, 0, 0, 0.08) 0%,
+            rgba(0, 0, 0, 0.18) 42%,
+            rgba(0, 0, 0, 0.62) 100%);
+        z-index: 1;
+      }
+
+      .skin-card__content {
+        position: absolute;
+        left: 30px;
+        right: 30px;
+        bottom: 28px;
+        z-index: 2;
+        max-width: 360px;
+      }
+
+      .skin-card__content h3 {
+        margin: 0 0 18px;
+        color: #fff;
+        font-size: clamp(24px, 2vw, 38px);
+        line-height: 1.02;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+      }
+
+      .skin-card__btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        backdrop-filter: blur(10px);
+        transition:
+          background 0.25s ease,
+          transform 0.25s ease;
+      }
+
+      .skin-card:hover .skin-card__image {
+        transform: scale(1.05);
+      }
+
+      .skin-card:hover .skin-card__btn {
+        background: rgba(255, 255, 255, 0.22);
+        transform: translateY(-2px);
+      }
+
+      /* Optional card-specific text widths */
+      .skin-card--wide .skin-card__content {
+        max-width: 460px;
+      }
+
+      .skin-card--wide-bottom .skin-card__content {
+        max-width: 480px;
+      }
+
+      /* Tablet */
+      @media (max-width: 991px) {
+        .skin-bento__grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 300px 300px 300px;
+        }
+
+        .skin-card--tall {
+          grid-column: 1 / 2;
+          grid-row: 1 / 2;
+        }
+
+        .skin-card--wide {
+          grid-column: 2 / 3;
+          grid-row: 1 / 2;
+        }
+
+        .skin-card:nth-child(3) {
+          grid-column: 1 / 2;
+          grid-row: 2 / 3;
+        }
+
+        .skin-card--wide-bottom {
+          grid-column: 2 / 3;
+          grid-row: 2 / 3;
+        }
+
+        .skin-card:nth-child(5) {
+          grid-column: 1 / 3;
+          grid-row: 3 / 4;
+        }
+
+        .skin-card__content h3 {
+          font-size: 28px;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 640px) {
+        .skin-bento {
+          padding: 14px;
+        }
+
+        .skin-bento__grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(5, 280px);
+        }
+
+        .skin-card,
+        .skin-card--tall,
+        .skin-card--wide,
+        .skin-card--wide-bottom,
+        .skin-card:nth-child(3),
+        .skin-card:nth-child(5) {
+          grid-column: auto;
+          grid-row: auto;
+        }
+
+        .skin-card__content {
+          left: 20px;
+          right: 20px;
+          bottom: 20px;
+        }
+
+        .skin-card__content h3 {
+          font-size: 24px;
+          max-width: 280px;
+        }
+
+        .skin-card__btn {
+          min-height: 40px;
+          font-size: 13px;
+          padding: 0 16px;
+        }
+      }
+    </style>
+  </section>
+
+  <!-- before/after -->
+  <section class="ba-section">
+    <div class="ba-container">
+      <div class="ba-content">
+        <span class="ba-eyebrow">Flawless Finish</span>
+
+        <h2 class="ba-title">
+          Airbrushed, Poreless Skin - Without the Cakey Look
+        </h2>
+
+        <p class="ba-text">
+          Your new everyday finishing powder that blurs, brightens, and sets without settling into fine lines.
+        </p>
+
+        <div class="ba-highlights">
+          <span>Blurs pores</span>
+          <span>Soft-focus finish</span>
+          <span>No flashback</span>
+        </div>
+
+        <a href="#" class="ba-button">Shop Baked Finishing Powder</a>
+      </div>
+
+      <div class="ba-compare" id="beforeAfterCompare">
+        <div class="ba-image ba-image--before">
+          <img src="https://candyglowcosmetics.com/cdn/shop/files/Before_4.png" alt="Before using finishing powder">
+          <span class="ba-tag ba-tag--left">Before</span>
+        </div>
+
+        <div class="ba-image ba-image--after">
+          <img src="https://candyglowcosmetics.com/cdn/shop/files/Before_3.png" alt="After using finishing powder">
+          <span class="ba-tag ba-tag--right">After</span>
+        </div>
+
+        <div class="ba-divider">
+          <button class="ba-handle" type="button" aria-label="Drag to compare before and after">
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <style>
+      .ba-section {
+        padding: 28px 20px;
+        background: #f6f1f2;
+      }
+
+      .ba-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: #fbf8f8;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        display: grid;
+        grid-template-columns: 1.02fr 1fr;
+        align-items: stretch;
+        overflow: hidden;
+        border-radius: 8px;
+      }
+
+      .ba-content {
+        padding: 72px 72px 72px 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .ba-eyebrow {
+        display: inline-block;
+        margin-bottom: 18px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #bf7c8f;
+      }
+
+      .ba-title {
+        margin: 0 0 24px;
+        color: #111;
+        font-size: clamp(34px, 4vw, 38px);
+        line-height: 1.06;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        max-width: 700px;
+      }
+
+      .ba-text {
+        margin: 0 0 28px;
+        max-width: 620px;
+        color: #575757;
+        font-size: 18px;
+        line-height: 1.7;
+      }
+
+      .ba-highlights {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 34px;
+      }
+
+      .ba-highlights span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 40px;
+        padding: 0 16px;
+        border-radius: 999px;
+        background: #f2d9e1;
+        color: #9b5f70;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .ba-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        min-height: 54px;
+        padding: 0 30px;
+        border-radius: 6px;
+        background: #e79ab1;
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        transition: background 0.25s ease, transform 0.25s ease;
+      }
+
+      .ba-button:hover {
+        background: #dc89a2;
+        transform: translateY(-1px);
+      }
+
+      .ba-compare {
+        position: relative;
+        min-height: 620px;
+        background: #dde2df;
+        overflow: hidden;
+        user-select: none;
+      }
+
+      .ba-image {
+        position: absolute;
+        inset: 0;
+      }
+
+      .ba-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .ba-image--before {
+        z-index: 1;
+      }
+
+      .ba-image--after {
+        z-index: 2;
+        clip-path: inset(0 0 0 50%);
+      }
+
+      .ba-tag {
+        position: absolute;
+        top: 22px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        padding: 0 16px;
+        border-radius: 4px;
+        background: rgba(43, 43, 43, 0.85);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+        z-index: 4;
+      }
+
+      .ba-tag--left {
+        left: 22px;
+      }
+
+      .ba-tag--right {
+        right: 22px;
+      }
+
+      .ba-divider {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 2px;
+        background: rgba(255, 255, 255, 0.95);
+        z-index: 5;
+        transform: translateX(-50%);
+      }
+
+      .ba-handle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+        transform: translate(-50%, -50%);
+        cursor: ew-resize;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 0;
+      }
+
+      .ba-handle span {
+        width: 0;
+        height: 0;
+        border-top: 6px solid transparent;
+        border-bottom: 6px solid transparent;
+      }
+
+      .ba-handle span:first-child {
+        border-right: 8px solid #333;
+      }
+
+      .ba-handle span:last-child {
+        border-left: 8px solid #333;
+      }
+
+      @media (max-width: 1100px) {
+        .ba-container {
+          grid-template-columns: 1fr;
+        }
+
+        .ba-content {
+          padding: 50px 28px 42px;
+        }
+
+        .ba-compare {
+          min-height: 540px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .ba-section {
+          padding: 16px;
+        }
+
+        .ba-content {
+          padding: 38px 20px 30px;
+        }
+
+        .ba-title {
+          font-size: 34px;
+        }
+
+        .ba-text {
+          font-size: 16px;
+          line-height: 1.65;
+        }
+
+        .ba-button {
+          width: 100%;
+          text-align: center;
+          padding: 0 20px;
+          font-size: 16px;
+        }
+
+        .ba-compare {
+          min-height: 420px;
+        }
+
+        .ba-tag {
+          top: 16px;
+          min-height: 36px;
+          padding: 0 14px;
+          font-size: 13px;
+        }
+
+        .ba-tag--left {
+          left: 16px;
+        }
+
+        .ba-tag--right {
+          right: 16px;
+        }
+
+        .ba-handle {
+          width: 46px;
+          height: 46px;
+        }
+      }
+    </style>
+
+    <script>
+      (function () {
+        const compare = document.getElementById("beforeAfterCompare");
+        if (!compare) return;
+
+        const afterImage = compare.querySelector(".ba-image--after");
+        const divider = compare.querySelector(".ba-divider");
+        const handle = compare.querySelector(".ba-handle");
+
+        let isDragging = false;
+
+        function setPosition(clientX) {
+          const rect = compare.getBoundingClientRect();
+          let x = clientX - rect.left;
+          let percent = (x / rect.width) * 100;
+
+          if (percent < 0) percent = 0;
+          if (percent > 100) percent = 100;
+
+          afterImage.style.clipPath = `inset(0 0 0 ${percent}%)`;
+          divider.style.left = `${percent}%`;
+        }
+
+        function startDrag(e) {
+          isDragging = true;
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          setPosition(clientX);
+        }
+
+        function drag(e) {
+          if (!isDragging) return;
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          setPosition(clientX);
+        }
+
+        function stopDrag() {
+          isDragging = false;
+        }
+
+        handle.addEventListener("mousedown", startDrag);
+        compare.addEventListener("mousedown", startDrag);
+
+        window.addEventListener("mousemove", drag);
+        window.addEventListener("mouseup", stopDrag);
+
+        handle.addEventListener("touchstart", startDrag, { passive: true });
+        compare.addEventListener("touchstart", startDrag, { passive: true });
+        window.addEventListener("touchmove", drag, { passive: true });
+        window.addEventListener("touchend", stopDrag);
+      })();
+    </script>
+  </section>
+
+
+  <!-- Tstimonies -->
+  <section class="testimonials-section">
+
+    <div class="overlay"></div>
+
+    <div class="testimonials-container">
+
+      <div class="header">
+        <span class="label">Customer Love</span>
+        <h2>What Our Customers Are Saying</h2>
+        <p>Real stories from customers who have experienced the Candy Glow difference.</p>
+      </div>
+
+      <div class="testimonial-slider">
+
+        <button class="nav prev" id="prevBtn" aria-label="Previous testimonial">‹</button>
+
+        <div class="slider-window">
+          <div class="slides" id="slides">
+
+            <div class="slide">
+              <div class="slide-card">
+                <h3>Amara O.</h3>
+                <div class="stars">★★★★★</div>
+                <p>
+                  "I loved not having to guess what to buy. The Founder Glow Essentials made it easy...everything just
+                  works together."
+                </p>
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="slide-card">
+                <h3>Tolu E.</h3>
+                <div class="stars">★★★★★</div>
+                <p>
+                  "My makeup looks polished, buy my skin still fells comfortable. Nothing heavy, nothing irritating."
+                </p>
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="slide-card">
+                <h3>Ifeoma J.</h3>
+                <div class="stars">★★★★★</div>
+                <p>
+                  "You can tell this bundle was curated on purpose. It doesn't feel random...it feels thoughtful."
+                </p>
+              </div>
+            </div>
+
+            <div class="slide">
+              <div class="slide-card">
+                <h3>Zainab M.</h3>
+                <div class="stars">★★★★★</div>
+                <p>
+                  "I loved not having to guess what to buy. The Founder Glow Essentials made it easy...everything just
+                  works together."
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <button class="nav next" id="nextBtn" aria-label="Next testimonial">›</button>
+
+      </div>
+
+      <div class="slider-dots" id="sliderDots"></div>
+
+    </div>
+
+    <style>
+      .testimonials-section {
+        position: relative;
+        padding: 120px 20px;
+        background: url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        overflow: hidden;
+      }
+
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.72);
+      }
+
+      .testimonials-container {
+        position: relative;
+        z-index: 2;
+        max-width: 950px;
+        margin: auto;
+        text-align: center;
+      }
+
+      .header {
+        margin-bottom: 50px;
+      }
+
+      .label {
+        display: inline-block;
+        padding: 8px 18px;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        font-size: 12px;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .header h2 {
+        font-size: 40px;
+        font-family: Georgia, serif;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        color: rgba(255, 255, 255, .85);
+        max-width: 650px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      .testimonial-slider {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .slider-window {
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .slides {
+        display: flex;
+        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform;
+      }
+
+      .slide {
+        min-width: 100%;
+        flex: 0 0 100%;
+        padding: 8px;
+        box-sizing: border-box;
+      }
+
+      .slide-card {
+        background: rgba(255, 255, 255, 0.94);
+        color: #111;
+        padding: 42px 38px;
+        border-radius: 22px;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, .28);
+        backdrop-filter: blur(8px);
+      }
+
+      .slide-card h3 {
+        margin: 0 0 8px;
+        font-size: 24px;
+        font-family: Georgia, serif;
+      }
+
+      .slide-card p {
+        color: #444;
+        font-size: 15px;
+        line-height: 1.9;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .stars {
+        color: #e3a700;
+        margin-bottom: 16px;
+        font-size: 15px;
+        letter-spacing: 0.18em;
+      }
+
+      .nav {
+        flex: 0 0 auto;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.96);
+        color: #111;
+        font-size: 28px;
+        line-height: 1;
+        cursor: pointer;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, .28);
+        transition: transform .25s ease, opacity .25s ease, background .25s ease;
+      }
+
+      .nav:hover {
+        transform: translateY(-2px);
+        background: #fff;
+      }
+
+      .slider-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 26px;
+      }
+
+      .slider-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.35);
+        border: none;
+        cursor: pointer;
+        transition: all .3s ease;
+      }
+
+      .slider-dot.active {
+        width: 30px;
+        border-radius: 999px;
+        background: #ffffff;
+      }
+
+      @media (max-width: 700px) {
+        .testimonials-section {
+          padding: 90px 16px;
+        }
+
+        .header h2 {
+          font-size: 30px;
+        }
+
+        .testimonial-slider {
+          gap: 12px;
+        }
+
+        .slide-card {
+          padding: 30px 22px;
+          border-radius: 18px;
+        }
+
+        .slide-card h3 {
+          font-size: 21px;
+        }
+
+        .slide-card p {
+          font-size: 14px;
+          line-height: 1.8;
+        }
+
+        .nav {
+          width: 44px;
+          height: 44px;
+          font-size: 24px;
+        }
+      }
+    </style>
+
+    <script>
+      const slides = document.getElementById("slides");
+      const slideItems = document.querySelectorAll(".slide");
+      const nextBtn = document.getElementById("nextBtn");
+      const prevBtn = document.getElementById("prevBtn");
+      const dotsWrap = document.getElementById("sliderDots");
+
+      let index = 0;
+      let autoplay;
+
+      slideItems.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.className = "slider-dot" + (i === 0 ? " active" : "");
+        dot.setAttribute("aria-label", `Go to testimonial ${i + 1}`);
+        dot.addEventListener("click", () => {
+          goToSlide(i);
+          resetAutoplay();
+        });
+        dotsWrap.appendChild(dot);
+      });
+
+      const dots = document.querySelectorAll(".slider-dot");
+
+      function updateSlider() {
+        slides.style.transform = `translateX(-${index * 100}%)`;
+
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+      }
+
+      function goToSlide(i) {
+        index = (i + slideItems.length) % slideItems.length;
+        updateSlider();
+      }
+
+      function nextSlide() {
+        goToSlide(index + 1);
+      }
+
+      function prevSlide() {
+        goToSlide(index - 1);
+      }
+
+      function startAutoplay() {
+        autoplay = setInterval(() => {
+          nextSlide();
+        }, 3000);
+      }
+
+      function resetAutoplay() {
+        clearInterval(autoplay);
+        startAutoplay();
+      }
+
+      nextBtn.addEventListener("click", () => {
+        nextSlide();
+        resetAutoplay();
+      });
+
+      prevBtn.addEventListener("click", () => {
+        prevSlide();
+        resetAutoplay();
+      });
+
+      const sliderSection = document.querySelector(".testimonial-slider");
+
+      sliderSection.addEventListener("mouseenter", () => clearInterval(autoplay));
+      sliderSection.addEventListener("mouseleave", startAutoplay);
+
+      updateSlider();
+      startAutoplay();
+    </script>
+  </section>
+
+
+
+
+  <!-- Why us -->
+  <section class="why-shop">
+    <div class="why-shop__container">
+
+      <div class="why-shop__header">
+        <span class="why-shop__label">Why Choose Us</span>
+        <h2 class="why-shop__title">Why Shop With Us?</h2>
+        <p class="why-shop__subtitle">
+          We make beauty simple, reliable, and enjoyable — from product quality to delivery.
+        </p>
+      </div>
+
+      <div class="why-shop__grid">
+
+        <div class="why-card">
+          <div class="why-icon">🚚</div>
+          <h3>Fast & Reliable Shipping</h3>
+          <p>
+            Your glow essentials are processed quickly and shipped with care so you
+            receive them without delays.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">🌿</div>
+          <h3>Skin-Safe Ingredients</h3>
+          <p>
+            Our formulas are thoughtfully created to be gentle, safe, and supportive
+            of healthy, radiant skin.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">🔒</div>
+          <h3>100% Secure Checkout</h3>
+          <p>
+            Shop confidently with encrypted and secure payment systems designed to
+            protect every transaction.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <div class="why-icon">↩️</div>
+          <h3>Hassle-Free Returns</h3>
+          <p>
+            If something isn’t right, our easy return process ensures your experience
+            stays smooth and worry-free.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+    <style>
+      .why-shop {
+        padding: 90px 20px;
+        background: linear-gradient(180deg, #fff8fb, #fff1f6);
+      }
+
+      .why-shop__container {
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .why-shop__header {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .why-shop__label {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 30px;
+        background: #fff;
+        border: 1px solid #ffd6e6;
+        color: #c53a7a;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+
+      .why-shop__title {
+        font-size: 36px;
+        font-family: Georgia, serif;
+        color: #1d0f15;
+        margin-bottom: 10px;
+      }
+
+      .why-shop__subtitle {
+        color: #6b5b61;
+        font-size: 16px;
+        max-width: 600px;
+        margin: auto;
+      }
+
+      .why-shop__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 26px;
+      }
+
+      .why-card {
+        background: white;
+        padding: 30px 24px;
+        border-radius: 22px;
+        text-align: center;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
+        transition: .3s;
+      }
+
+      .why-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, .12);
+      }
+
+      .why-icon {
+        font-size: 32px;
+        margin-bottom: 14px;
+      }
+
+      .why-card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: #1a1115;
+      }
+
+      .why-card p {
+        font-size: 14px;
+        color: #6b5b61;
+        line-height: 1.7;
+      }
+
+      @media(max-width:900px) {
+
+        .why-shop__grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+      }
+
+      @media(max-width:600px) {
+
+        .why-shop__grid {
+          grid-template-columns: 1fr;
+        }
+
+        .why-shop__title {
+          font-size: 30px;
+        }
+
+      }
+    </style>
+  </section>
+
+
+  <!-- newsletter -->
+  <section class="newsletter-section">
+
+    <div class="newsletter-overlay"></div>
+
+    <div class="newsletter-container">
+
+      <span class="newsletter-label">
+        Join the Beauty Club
+      </span>
+
+      <h2 class="newsletter-title">
+        Subscribe for Glow Updates
+      </h2>
+
+      <p class="newsletter-text">
+        Be the first to hear about new launches, limited founder batches,
+        beauty tips, and exclusive offers designed to keep your glow effortless.
+      </p>
+
+      <form class="newsletter-form">
+
+        <input type="email" placeholder="Enter your email address" required>
+
+        <button type="submit">
+          Subscribe
+        </button>
+
+      </form>
+
+      <small class="newsletter-note">
+        No spam. Just glow-worthy updates and exclusive offers.
+      </small>
+
+    </div>
+
+    <style>
+      .newsletter-section {
+        position: relative;
+        padding: 120px 20px;
+        background-image: url("https://images.unsplash.com/photo-1596464716127-f2a82984de30");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+      }
+
+      .newsletter-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.65);
+      }
+
+      .newsletter-container {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: auto;
+        text-align: center;
+        color: white;
+      }
+
+      .newsletter-label {
+        display: inline-block;
+        padding: 8px 18px;
+        border-radius: 30px;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+
+      .newsletter-title {
+        font-size: 40px;
+        font-family: Georgia, serif;
+        margin-bottom: 14px;
+      }
+
+      .newsletter-text {
+        font-size: 16px;
+        line-height: 1.7;
+        max-width: 520px;
+        margin: 0 auto 30px;
+        color: rgba(255, 255, 255, .85);
+      }
+
+      .newsletter-form {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        max-width: 520px;
+        margin: auto;
+      }
+
+      .newsletter-form input {
+        flex: 1;
+        padding: 16px 18px;
+        border-radius: 30px;
+        border: none;
+        font-size: 14px;
+        outline: none;
+      }
+
+      .newsletter-form button {
+        padding: 16px 26px;
+        border: none;
+        border-radius: 30px;
+        background: #ffffff;
+        color: #111;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: .3s;
+      }
+
+      .newsletter-form button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .4);
+      }
+
+      .newsletter-note {
+        display: block;
+        margin-top: 14px;
+        font-size: 12px;
+        color: rgba(255, 255, 255, .7);
+      }
+
+      @media(max-width:600px) {
+
+        .newsletter-section {
+          padding: 90px 20px;
+        }
+
+        .newsletter-title {
+          font-size: 30px;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+        }
+
+        .newsletter-form button {
+          width: 100%;
+        }
+
+      }
+    </style>
+  </section>
+
+
+  <footer class="cg-footer">
+
+    <div class="cg-footer-container">
+
+      <div class="cg-footer-grid">
+
+        <!-- Brand -->
+        <div class="cg-footer-brand">
+
+          <h3>Candy Glow</h3>
+
+          <p>
+            Candy Glow is a founder-driven beauty brand born from a belief that makeup should feel personal,
+            intentional, and joyful. Our original formulas were crafted in small batches with clean ingredients,
+            elevated performance, and a glowing aesthetic in mind.
+          </p>
+
+        </div>
+
+        <!-- Quick Links -->
+        <div class="cg-footer-links">
+
+          <h4>Quick Links</h4>
+
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">✨Founder Glow Essentials</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact us</a></li>
+          </ul>
+
+        </div>
+
+        <!-- Information -->
+        <div class="cg-footer-links">
+
+          <h4>Information</h4>
+
+          <ul>
+            <li><a href="#">FAQ's</a></li>
+            <li><a href="#">How Candy Glow Began</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li>
+              <a href="#">
+                Your Privacy Choices
+                <span class="privacy-note">
+                  California Consumer Privacy Act (CCPA) Opt-Out Icon
+                </span>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <!-- Features -->
+        <div class="cg-footer-features">
+
+          <h4>About Our Brand</h4>
+
+          <div class="feature">
+            <h5>✨ Limited Batch Beauty</h5>
+            <p>
+              Every product is part of our founder’s edition collection — created with care and available only while
+              supplies last.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h5>🌿 Clean & Cruelty-Free</h5>
+            <p>
+              We prioritize vegan, cruelty-free ingredients and a clean beauty philosophy.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h5>💫 Everyday Confidence</h5>
+            <p>
+              Candy Glow enhances your natural beauty — from a soft daily glow to a bold finish.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Bottom -->
+
+      <div class="cg-footer-bottom">
+
+        <p class="cg-footer-thanks">
+          © 2026, Cocoa and Candy Cosmetics
+        </p>
+
+        <div class="cg-footer-socials">
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">TikTok</a>
+          <a href="#">X (Twitter)</a>
+        </div>
+
+        <div class="cg-footer-payments">
+          <span>Payment methods:</span>
+          <div class="payment-icons">
+            <span>Visa</span>
+            <span>Mastercard</span>
+            <span>PayPal</span>
+            <span>Apple Pay</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <style>
+      .cg-footer {
+        background: #ffffff;
+        padding: 80px 20px 40px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #333;
+        border-top: 1px solid #eee;
+      }
+
+      .cg-footer-container {
+        max-width: 1300px;
+        margin: auto;
+      }
+
+      .cg-footer-grid {
+        display: grid;
+        grid-template-columns: 1.2fr .8fr .8fr 1.2fr;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .cg-footer-brand h3 {
+        font-family: Georgia, serif;
+        font-size: 30px;
+        margin-bottom: 16px;
+      }
+
+      .cg-footer-brand p {
+        font-size: 14px;
+        line-height: 1.8;
+        color: #666;
+        max-width: 380px;
+      }
+
+      .cg-footer-links h4,
+      .cg-footer-features h4 {
+        font-size: 18px;
+        margin-bottom: 16px;
+        font-family: Georgia, serif;
+      }
+
+      .cg-footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .cg-footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .cg-footer-links a {
+        text-decoration: none;
+        color: #555;
+        font-size: 14px;
+        transition: .25s;
+      }
+
+      .cg-footer-links a:hover {
+        color: #000;
+      }
+
+      .privacy-note {
+        display: block;
+        font-size: 11px;
+        color: #999;
+        margin-top: 4px;
+      }
+
+      .feature {
+        margin-bottom: 16px;
+      }
+
+      .feature h5 {
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+
+      .feature p {
+        font-size: 13px;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .cg-footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding-top: 25px;
+        border-top: 1px solid #eee;
+      }
+
+      .cg-footer-thanks {
+        font-size: 13px;
+        color: #666;
+        max-width: 420px;
+      }
+
+      .cg-footer-socials {
+        display: flex;
+        gap: 14px;
+      }
+
+      .cg-footer-socials a {
+        text-decoration: none;
+        font-size: 13px;
+        color: #333;
+        font-weight: 600;
+      }
+
+      .cg-footer-socials a:hover {
+        text-decoration: underline;
+      }
+
+      .cg-footer-payments {
+        text-align: right;
+        font-size: 13px;
+        color: #666;
+      }
+
+      .payment-icons {
+        display: flex;
+        gap: 10px;
+        margin-top: 6px;
+        justify-content: flex-end;
+      }
+
+      .payment-icons span {
+        background: #f5f5f5;
+        padding: 6px 10px;
+        border-radius: 6px;
+        font-size: 12px;
+      }
+
+      @media(max-width:900px) {
+
+        .cg-footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .cg-footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .payment-icons {
+          justify-content: center;
+        }
+
+      }
+
+      @media(max-width:600px) {
+
+        .cg-footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+      }
+    </style>
+  </footer>
+
+
+
+
+
+  <script src="scripts.js" defer></script>
+
+</body>
+
+</html>

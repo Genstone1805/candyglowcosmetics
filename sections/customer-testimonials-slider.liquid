@@ -1,0 +1,532 @@
+{% assign autoplay_ms = section.settings.autoplay_seconds | times: 1000 %}
+{% assign overlay_alpha = section.settings.overlay_opacity | divided_by: 100.0 %}
+
+{% liquid
+  assign background_image_url = section.settings.background_image_url
+  if section.settings.background_image != blank
+    assign background_image_url = section.settings.background_image | image_url: width: 2400
+  endif
+%}
+
+<section
+  id="Testimonials-{{ section.id }}"
+  class="testimonials-slider-section"
+  data-autoplay="{{ autoplay_ms }}"
+  {% if background_image_url != blank %}
+    style="background-image: url('{{ background_image_url }}');"
+  {% endif %}
+>
+  <div class="overlay"></div>
+
+  <div class="testimonials-container">
+    <div class="header">
+      {% if section.settings.label != blank %}
+        <span class="label">{{ section.settings.label }}</span>
+      {% endif %}
+
+      {% if section.settings.title != blank %}
+        <h2>{{ section.settings.title }}</h2>
+      {% endif %}
+
+      {% if section.settings.text != blank %}
+        <p>{{ section.settings.text }}</p>
+      {% endif %}
+    </div>
+
+    <div class="testimonial-slider">
+      <button class="nav prev" type="button" aria-label="Previous testimonial" data-prev>&lsaquo;</button>
+
+      <div class="slider-window">
+        <div class="slides" data-slides>
+          {% for block in section.blocks %}
+            <div class="slide" data-slide {{ block.shopify_attributes }}>
+              <div class="slide-card">
+                {% if block.settings.author != blank %}
+                  <h3>{{ block.settings.author }}</h3>
+                {% endif %}
+
+                <div class="stars">
+                  {% for i in (1..block.settings.rating) %}
+                    ★
+                  {% endfor %}
+                </div>
+
+                {% if block.settings.quote != blank %}
+                  <p>{{ block.settings.quote }}</p>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <button class="nav next" type="button" aria-label="Next testimonial" data-next>&rsaquo;</button>
+    </div>
+
+    <div class="slider-dots" data-dots></div>
+  </div>
+</section>
+
+{% style %}
+  #shopify-section-{{ section.id }} .testimonials-slider-section {
+    position: relative;
+    padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px;
+    background-color: {{ section.settings.fallback_background }};
+    background-size: cover;
+    background-position: center;
+    color: {{ section.settings.text_color }};
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .overlay {
+    position: absolute;
+    inset: 0;
+    background: {{ section.settings.overlay_color | color_modify: 'alpha', overlay_alpha }};
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .testimonials-container {
+    position: relative;
+    z-index: 2;
+    max-width: 950px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .header {
+    margin-bottom: 50px;
+  }
+
+  #shopify-section-{{ section.id }} .label {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .header h2 {
+    font-size: 40px;
+    font-family: Georgia, serif;
+    margin-bottom: 10px;
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .header p {
+    color: {{ section.settings.subtext_color }};
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  #shopify-section-{{ section.id }} .testimonial-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .slider-window {
+    overflow: hidden;
+    width: 100%;
+    max-width: 720px;
+  }
+
+  #shopify-section-{{ section.id }} .slides {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  #shopify-section-{{ section.id }} .slide {
+    min-width: 100%;
+    flex: 0 0 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .slide-card {
+    background: {{ section.settings.card_background | color_modify: 'alpha', 0.94 }};
+    color: {{ section.settings.card_text_color }};
+    padding: 42px 38px;
+    border-radius: 22px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(8px);
+  }
+
+  #shopify-section-{{ section.id }} .slide-card h3 {
+    margin: 0 0 8px;
+    font-size: 24px;
+    font-family: Georgia, serif;
+    color: {{ section.settings.card_text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .slide-card p {
+    color: {{ section.settings.card_subtext_color }};
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .stars {
+    color: {{ section.settings.star_color }};
+    margin-bottom: 16px;
+    font-size: 15px;
+    letter-spacing: 0.18em;
+  }
+
+  #shopify-section-{{ section.id }} .nav {
+    flex: 0 0 auto;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.96);
+    color: #111111;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+    transition: transform 0.25s ease, opacity 0.25s ease, background 0.25s ease;
+  }
+
+  #shopify-section-{{ section.id }} .nav:hover {
+    transform: translateY(-2px);
+    background: #ffffff;
+  }
+
+  #shopify-section-{{ section.id }} .slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  #shopify-section-{{ section.id }} .slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .slider-dot.active {
+    width: 30px;
+    border-radius: 999px;
+    background: #ffffff;
+  }
+
+  @media (max-width: 700px) {
+    #shopify-section-{{ section.id }} .testimonials-slider-section {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+
+    #shopify-section-{{ section.id }} .header h2 {
+      font-size: 30px;
+    }
+
+    #shopify-section-{{ section.id }} .testimonial-slider {
+      gap: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .slide-card {
+      padding: 30px 22px;
+      border-radius: 18px;
+    }
+
+    #shopify-section-{{ section.id }} .slide-card h3 {
+      font-size: 21px;
+    }
+
+    #shopify-section-{{ section.id }} .slide-card p {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    #shopify-section-{{ section.id }} .nav {
+      width: 44px;
+      height: 44px;
+      font-size: 24px;
+    }
+  }
+{% endstyle %}
+
+<script>
+  (() => {
+    const root = document.getElementById('Testimonials-{{ section.id }}');
+    if (!root || root.dataset.initialized === 'true') return;
+    root.dataset.initialized = 'true';
+
+    const slides = root.querySelector('[data-slides]');
+    const slideItems = root.querySelectorAll('[data-slide]');
+    const nextBtn = root.querySelector('[data-next]');
+    const prevBtn = root.querySelector('[data-prev]');
+    const dotsWrap = root.querySelector('[data-dots]');
+    const autoplayDelay = Number(root.dataset.autoplay || 0);
+
+    if (!slides || slideItems.length === 0) return;
+
+    let index = 0;
+    let autoplay;
+
+    const buildDots = () => {
+      dotsWrap.innerHTML = '';
+      slideItems.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('type', 'button');
+        dot.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
+        dot.addEventListener('click', () => {
+          goToSlide(i);
+          resetAutoplay();
+        });
+        dotsWrap.appendChild(dot);
+      });
+    };
+
+    const getDots = () => root.querySelectorAll('.slider-dot');
+
+    const updateSlider = () => {
+      slides.style.transform = `translateX(-${index * 100}%)`;
+      getDots().forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    };
+
+    const goToSlide = (targetIndex) => {
+      index = (targetIndex + slideItems.length) % slideItems.length;
+      updateSlider();
+    };
+
+    const nextSlide = () => goToSlide(index + 1);
+    const prevSlide = () => goToSlide(index - 1);
+
+    const startAutoplay = () => {
+      if (autoplayDelay < 1000 || slideItems.length < 2) return;
+      autoplay = window.setInterval(nextSlide, autoplayDelay);
+    };
+
+    const resetAutoplay = () => {
+      if (autoplay) window.clearInterval(autoplay);
+      startAutoplay();
+    };
+
+    buildDots();
+    updateSlider();
+    startAutoplay();
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetAutoplay();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetAutoplay();
+      });
+    }
+
+    const slider = root.querySelector('.testimonial-slider');
+    if (slider) {
+      slider.addEventListener('mouseenter', () => {
+        if (autoplay) window.clearInterval(autoplay);
+      });
+      slider.addEventListener('mouseleave', startAutoplay);
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Customer Testimonials Slider",
+  "tag": "section",
+  "class": "section-customer-testimonials-slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Customer Love"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "What Our Customers Are Saying"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Real stories from customers who have experienced the Candy Glow difference."
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "text",
+      "id": "background_image_url",
+      "label": "Fallback background image URL",
+      "default": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
+    },
+    {
+      "type": "color",
+      "id": "fallback_background",
+      "label": "Fallback background color",
+      "default": "#1e1b1c"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 70,
+      "unit": "%"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subtext_color",
+      "label": "Subtext color",
+      "default": "#d9d9d9"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card heading color",
+      "default": "#111111"
+    },
+    {
+      "type": "color",
+      "id": "card_subtext_color",
+      "label": "Card body color",
+      "default": "#444444"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star color",
+      "default": "#e3a700"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_seconds",
+      "label": "Autoplay speed",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "default": 3,
+      "unit": "s"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 120,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 120,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Amara O."
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "I genuinely love how premium everything feels. The products apply smoothly and give a beautiful glow without feeling heavy."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Customer Testimonials Slider",
+      "blocks": [
+        {
+          "type": "testimonial"
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "author": "Tolu E.",
+            "quote": "Shipping was fast and the checkout process was seamless. The products have now become part of my daily routine."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "author": "Ifeoma J.",
+            "quote": "The texture and finish are amazing. You can tell these formulas were crafted with care."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

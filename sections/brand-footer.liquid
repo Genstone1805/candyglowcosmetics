@@ -1,0 +1,490 @@
+<footer class="cg-footer">
+  <div class="cg-footer-container">
+    <div class="cg-footer-grid">
+      <div class="cg-footer-brand">
+        {% if section.settings.brand_heading != blank %}
+          <h3>{{ section.settings.brand_heading }}</h3>
+        {% endif %}
+
+        {% if section.settings.brand_text != blank %}
+          <p>{{ section.settings.brand_text }}</p>
+        {% endif %}
+      </div>
+
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'menu_column' %}
+            <div class="cg-footer-links" {{ block.shopify_attributes }}>
+              {% if block.settings.heading != blank %}
+                <h4>{{ block.settings.heading }}</h4>
+              {% endif %}
+
+              {% assign footer_menu = linklists[block.settings.menu] %}
+              {% if footer_menu.links != blank %}
+                <ul>
+                  {% for link in footer_menu.links %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
+
+      <div class="cg-footer-features">
+        {% if section.settings.features_heading != blank %}
+          <h4>{{ section.settings.features_heading }}</h4>
+        {% endif %}
+
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'feature' %}
+              <div class="feature" {{ block.shopify_attributes }}>
+                {% if block.settings.heading != blank %}
+                  <h5>{{ block.settings.heading }}</h5>
+                {% endif %}
+
+                {% if block.settings.text != blank %}
+                  <p>{{ block.settings.text }}</p>
+                {% endif %}
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="cg-footer-bottom">
+      {% if section.settings.copyright_text != blank %}
+        <p class="cg-footer-thanks">{{ section.settings.copyright_text }}</p>
+      {% endif %}
+
+      <div class="cg-footer-socials">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'social_link' %}
+              {% if block.settings.label != blank %}
+                <a href="{{ block.settings.link | default: '#' }}" {{ block.shopify_attributes }}>
+                  {{ block.settings.label }}
+                </a>
+              {% endif %}
+          {% endcase %}
+        {% endfor %}
+      </div>
+
+      <div class="cg-footer-payments">
+        {% if section.settings.payments_label != blank %}
+          <span>{{ section.settings.payments_label }}</span>
+        {% endif %}
+
+        <div class="payment-icons">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'payment_method' %}
+                {% if block.settings.label != blank %}
+                  <span {{ block.shopify_attributes }}>{{ block.settings.label }}</span>
+                {% endif %}
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% style %}
+  #shopify-section-{{ section.id }} .cg-footer {
+    background: {{ section.settings.background_color }};
+    padding: {{ section.settings.padding_top }}px 20px {{ section.settings.padding_bottom }}px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: {{ section.settings.text_color }};
+    border-top: 1px solid {{ section.settings.border_color }};
+  }
+
+  #shopify-section-{{ section.id }} .cg-footer-container {
+    max-width: 1300px;
+    margin: auto;
+  }
+
+  #shopify-section-{{ section.id }} .cg-footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .cg-footer-brand h3 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    margin-bottom: 16px;
+    color: {{ section.settings.heading_color }};
+  }
+
+  #shopify-section-{{ section.id }} .cg-footer-brand p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: {{ section.settings.muted_text_color }};
+    max-width: 380px;
+  }
+
+  #shopify-section-{{ section.id }} .cg-footer-links h4,
+  #shopify-section-{{ section.id }} .cg-footer-features h4 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    font-family: Georgia, serif;
+    color: {{ section.settings.heading_color }};
+  }
+
+  #shopify-section-{{ section.id }} .cg-footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .cg-footer-links li {
+    margin-bottom: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .cg-footer-links a,
+  #shopify-section-{{ section.id }} .cg-footer-socials a {
+    text-decoration: none;
+    color: {{ section.settings.link_color }};
+    font-size: 14px;
+    transition: 0.25s;
+  }
+
+  #shopify-section-{{ section.id }} .cg-footer-links a:hover,
+  #shopify-section-{{ section.id }} .cg-footer-socials a:hover {
+    color: {{ section.settings.link_hover_color }};
+  }
+
+  #shopify-section-{{ section.id }} .feature {
+    margin-bottom: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .feature h5 {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: {{ section.settings.heading_color }};
+  }
+
+  #shopify-section-{{ section.id }} .feature p {
+    font-size: 13px;
+    color: {{ section.settings.muted_text_color }};
+    line-height: 1.6;
+  }
+
+  #shopify-section-{{ section.id }} .cg-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 25px;
+    border-top: 1px solid {{ section.settings.border_color }};
+  }
+
+  #shopify-section-{{ section.id }} .cg-footer-thanks {
+    font-size: 13px;
+    color: {{ section.settings.muted_text_color }};
+    max-width: 420px;
+  }
+
+  #shopify-section-{{ section.id }} .cg-footer-socials {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  #shopify-section-{{ section.id }} .cg-footer-payments {
+    text-align: right;
+    font-size: 13px;
+    color: {{ section.settings.muted_text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .payment-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+
+  #shopify-section-{{ section.id }} .payment-icons span {
+    background: {{ section.settings.payment_background }};
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: {{ section.settings.text_color }};
+  }
+
+  @media (max-width: 900px) {
+    #shopify-section-{{ section.id }} .cg-footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    #shopify-section-{{ section.id }} .cg-footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    #shopify-section-{{ section.id }} .payment-icons {
+      justify-content: center;
+    }
+
+    #shopify-section-{{ section.id }} .cg-footer-payments {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 600px) {
+    #shopify-section-{{ section.id }} .cg-footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Brand Footer",
+  "tag": "section",
+  "class": "section-brand-footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_heading",
+      "label": "Brand heading",
+      "default": "Candy Glow"
+    },
+    {
+      "type": "textarea",
+      "id": "brand_text",
+      "label": "Brand description",
+      "default": "Candy Glow is a founder-driven beauty brand born from a belief that makeup should feel personal, intentional, and joyful. Our original formulas were crafted in small batches with clean ingredients, elevated performance, and a glowing aesthetic in mind."
+    },
+    {
+      "type": "text",
+      "id": "features_heading",
+      "label": "Features heading",
+      "default": "About Our Brand"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text",
+      "default": "© 2026, Cocoa and Candy Cosmetics"
+    },
+    {
+      "type": "text",
+      "id": "payments_label",
+      "label": "Payments label",
+      "default": "Payment methods:"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "muted_text_color",
+      "label": "Muted text color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#555555"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#eeeeee"
+    },
+    {
+      "type": "color",
+      "id": "payment_background",
+      "label": "Payment badge background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 140,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu_column",
+      "name": "Menu column",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Quick Links"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
+    },
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "✨ Limited Batch Beauty"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Every product is part of our founder’s edition collection — created with care and available only while supplies last."
+        }
+      ]
+    },
+    {
+      "type": "social_link",
+      "name": "Social link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Instagram"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "payment_method",
+      "name": "Payment method",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Visa"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Footer",
+      "blocks": [
+        {
+          "type": "menu_column",
+          "settings": {
+            "heading": "Quick Links"
+          }
+        },
+        {
+          "type": "menu_column",
+          "settings": {
+            "heading": "Information"
+          }
+        },
+        {
+          "type": "feature"
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "heading": "🌿 Clean & Cruelty-Free",
+            "text": "We prioritize vegan, cruelty-free ingredients and a clean beauty philosophy."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "heading": "💫 Everyday Confidence",
+            "text": "Candy Glow enhances your natural beauty — from a soft daily glow to a bold finish."
+          }
+        },
+        {
+          "type": "social_link",
+          "settings": {
+            "label": "Facebook"
+          }
+        },
+        {
+          "type": "social_link",
+          "settings": {
+            "label": "Instagram"
+          }
+        },
+        {
+          "type": "social_link",
+          "settings": {
+            "label": "TikTok"
+          }
+        },
+        {
+          "type": "payment_method",
+          "settings": {
+            "label": "Visa"
+          }
+        },
+        {
+          "type": "payment_method",
+          "settings": {
+            "label": "Mastercard"
+          }
+        },
+        {
+          "type": "payment_method",
+          "settings": {
+            "label": "PayPal"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

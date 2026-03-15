@@ -1155,8 +1155,23 @@
           flex: 0 0 100%;
         }
 
+
         .product-media img {
-          height: 260px;
+          height: 340px;
+        }
+      }
+
+      @media (max-width: 1199px) {
+        .slider-nav {
+          display: none !important;
+        }
+
+        .product-slider__viewport::-webkit-scrollbar {
+          display: none;
+        }
+
+        .product-slide {
+          scroll-snap-align: start;
         }
       }
     </style>
@@ -1217,19 +1232,6 @@
           offset = Math.min(offset, maxTranslate);
 
           track.style.transform = `translateX(-${offset}px)`;
-
-          // Hide / show navigation buttons
-          if (offset <= 0) {
-            prevBtn.style.display = "none";
-          } else {
-            prevBtn.style.display = "flex";
-          }
-
-          // if (offset >= maxTranslate - 1) {
-          //   nextBtn.style.display = "none";
-          // } else {
-          //   nextBtn.style.display = "flex";
-          // }
 
           updateActivePagination();
         }
@@ -1318,7 +1320,7 @@
 
   <!-- categories -->
   <section class="skin-bento">
-    <div style="width:100%; max-width: 1200px; margin: 10px auto;">
+    <div style="width:100%; max-width: 1200px; margin: auto;">
       <h1 style="color:white">Our categories</h1>
     </div>
     <div class="skin-bento__grid">
@@ -1368,12 +1370,11 @@
     </div>
     <style>
       .skin-bento {
-        padding: 18px;
+        padding: 40px 18px;
         background: #000;
         display: flex;
         flex-direction: column;
         align-items: center;
-
       }
 
       .skin-bento__grid {
@@ -2447,8 +2448,23 @@
           flex: 0 0 100%;
         }
 
+
         .product-media img {
-          height: 260px;
+          height: 340px;
+        }
+      }
+
+      @media (max-width: 1199px) {
+        .slider-nav {
+          display: none !important;
+        }
+
+        .product-slider__viewport::-webkit-scrollbar {
+          display: none;
+        }
+
+        .product-slide {
+          scroll-snap-align: start;
         }
       }
     </style>
@@ -2509,19 +2525,6 @@
           offset = Math.min(offset, maxTranslate);
 
           track.style.transform = `translateX(-${offset}px)`;
-
-          // Hide / show navigation buttons
-          if (offset <= 0) {
-            prevBtn.style.display = "none";
-          } else {
-            prevBtn.style.display = "flex";
-          }
-
-          // if (offset >= maxTranslate - 1) {
-          //   nextBtn.style.display = "none";
-          // } else {
-          //   nextBtn.style.display = "flex";
-          // }
 
           updateActivePagination();
         }
